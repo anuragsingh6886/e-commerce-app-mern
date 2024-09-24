@@ -1,0 +1,12 @@
+// typegraphy - PX to REM function
+$base-font-size: 16;
+
+@function rem($px) {
+    @return ($px / $base-font-size) + rem;
+}
+
+// How to Use example 👇
+
+// .example-cls {
+//     font-size: rem(100);
+// }
