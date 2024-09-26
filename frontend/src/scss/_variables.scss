@@ -13,6 +13,62 @@ $col-gray-100: #FAFAFA;
 // Font Families
 $font-family-base: "SUSE", sans-serif;
 
+// Primary Colors
+$col-blue-900: #4078FF;
+$col-blue-800: #5C83FF;
+$col-blue-700: #728FFF;
+$col-blue-600: #869AFF;
+$col-blue-500: #97A6FF;
+$col-blue-400: #A8B2FF;
+$col-blue-300: #B7BFFF;
+$col-blue-200: #E3E5FF;
+$col-blue-100: #F0F1FF;
+
+// Neutral Colors
+$col-black-900: #0E1422;
+$col-black-800: #1E1E29;
+$col-black-700: #2F2F3A;
+$col-black-600: #424256;
+$col-black-500: #545463;
+$col-black-400: #666676;
+$col-black-300: #7F7F98;
+$col-black-200: #9F9FAA;
+$col-black-100: #C7C7D0;
+$col-white-300: #E9E9EB;
+$col-white-200: #F6F6F6;
+$col-white-100: #FFFFFF;
+
+// RGBY Colors
+$col-sem-green-900: #057234;
+$col-sem-green-800: #2C7F45;
+$col-sem-green-700: #458B56;
+$col-sem-green-600: #5A9868;
+$col-sem-green-500: #6FA479;
+$col-sem-green-400: #83B18B;
+$col-sem-green-300: #98BE9E;
+$col-sem-green-200: #C1D8C4;
+$col-sem-green-100: #D5E5D7;
+
+$col-sem-red-900: #BE1313;
+$col-sem-red-800: #E00000;
+$col-sem-red-700: #D14F3A;
+$col-sem-red-600: #D9644E;
+$col-sem-red-500: #E17862;
+$col-sem-red-400: #E88C77;
+$col-sem-red-300: #EE9F8D;
+$col-sem-red-200: #F8C5B9;
+$col-sem-red-100: #FBD9D0;
+
+$col-sem-yellow-900: #F3B40A;
+$col-sem-yellow-800: #F6BB33;
+$col-sem-yellow-700: #F9C14C;
+$col-sem-yellow-600: #FBC862;
+$col-sem-yellow-500: #FDCF76;
+$col-sem-yellow-400: #FFD58A;
+$col-sem-yellow-300: #FFDC9E;
+$col-sem-yellow-200: #FFEAC4;
+$col-sem-yellow-100: #FFF1D8;
+
 // Font Weights
 $font-weight-light: 300 !default;
 $font-weight-normal: 400 !default;
@@ -25,4 +81,5 @@ $grid-breakpoints: (
     md: 768px,
     lg: 1024px,
     xl: 1280px,
+    xxl: 1440px
 );

@@ -1,18 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+// import { Routes, Route } from 'react-router-dom';
 
 function App() {
-    const [message, setMessage] = useState("");
-
-    useEffect(() => {
-        fetch("http://localhost:3000/message")
-        .then((res) => res.json())
-        .then((data) => setMessage(data.message));
-    }, []);
-
     return (
-        <div className="App">
-            <h1>{message}</h1>
-        </div>
+        <div className="App"></div>
     );
 }
 
