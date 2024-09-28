@@ -4,6 +4,7 @@ import PLP from '../components/plp/ProductListing';
 import About from '../components/about/About';
 import Contact from '../components/contact/Contact';
 import Categories from '../components/categories/CategoryList';
+import Login from '../components/login/Login.js';
 
 const routes = [
     { path: '/', element: Home, exact: true },
@@ -12,6 +13,8 @@ const routes = [
     { path: '/about', element: About },
     { path: '/contact', element: Contact },
     { path: '/categories', element: Categories },
+    { path: '*', element: Home },
+    { path: '/Login', element: Login }
   ];
 
 export default routes;
