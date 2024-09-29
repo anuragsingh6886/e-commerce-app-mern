@@ -30,9 +30,14 @@
 
 ### Installation
 - Clone the repository: git clone [https://github.com/[anuragsingh6886]/e-commerce-app-mern.git](https://github.com/anuragsingh6886/e-commerce-app-mern)
-- Install dependencies: npm install
-- Start the backend server: npm start
-- Start the frontend server: npm run start:frontend
+- move to backend folder to install dependencies <br>
+   `cd backend
+   npm install`
+- Start the backend server: `npm run start`
+- move to frontend folder to install dependencies <br>
+   `cd frontend
+   npm install`
+- Start the frontend server: `npm run start`
 
 ### Configuration
 - Create a .env file in the root directory with the following variables:
