@@ -1,34 +1,52 @@
-import {useState, useEffect}  from 'react';
+import {useState, useEffect, useCallback }  from 'react';
 import { googleLogout, useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 
 const useGoogleAuth = () => {
-    const [user, setUser] = useState(null);
     const [profile, setProfile] = useState(null);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    const fetchUserProfile = useCallback(async (accessToken) => {
+        try {
+            const res = await axios.get(
+                `https://www.googleapis.com/oauth2/v1/userinfo`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`,
+                        Accept: 'application/json',
+                    },
+                }
+            );
+            setProfile(res.data);
+            setIsLoggedIn(true);
+            localStorage.setItem('google_access_token', accessToken);
+        } catch (err) {
+            console.log('Error fetching user profile:', err);
+            setIsLoggedIn(false);
+            localStorage.removeItem('google_access_token');
+        }
+    }, []);
 
     const login = useGoogleLogin({
-        onSuccess: (codeResponse) => setUser(codeResponse),
+        onSuccess: (codeResponse) => {
+            localStorage.setItem('google_access_token', codeResponse.access_token);
+        },
         onError: (error) => console.log('Login Failed:', error),
     });
 
-    useEffect(() => {
-        if (user) {
-            axios
-                .get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {headers: {'Authorization': `Bearer ${user.access_token}`}})
-                .then((res) => {
-                    setProfile(res.data);
-                })
-                .catch((err) => console.log(err));
-        }
-    }, [user]);
-
-    const logout = () => {
+    const logout = useCallback(() => {
         googleLogout();
-        setUser(null);
         setProfile(null);
-    };
+        setIsLoggedIn(false);
+        localStorage.removeItem('google_access_token');
+    }, []);
 
-    const isLoggedIn = !!profile;
+    useEffect(() => {
+        const storedToken = localStorage.getItem('google_access_token');
+        if (storedToken) {
+            fetchUserProfile(storedToken);
+        }
+    }, [fetchUserProfile]);
 
     return {isLoggedIn , profile, login, logout};
 };

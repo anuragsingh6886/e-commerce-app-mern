@@ -1,0 +1,28 @@
+{
+    "categories": [
+      {
+        "title": "Support",
+        "links": [
+          { "text": "FAQ", "url": "https://example.com/faq" },
+          { "text": "Terms of use", "url": "https://example.com/terms-of-use" },
+          { "text": "Privacy Policy", "url": "https://example.com/privacy-policy" }
+        ]
+      },
+      {
+        "title": "Company",
+        "links": [
+          { "text": "About us", "url": "https://example.com/about-us" },
+          { "text": "Contact", "url": "https://example.com/contact" },
+          { "text": "Careers", "url": "https://example.com/careers" }
+        ]
+      },
+      {
+        "title": "Shop",
+        "links": [
+          { "text": "My Account", "url": "https://example.com/my-account" },
+          { "text": "Checkout", "url": "https://example.com/checkout" },
+          { "text": "Cart", "url": "https://example.com/cart" }
+        ]
+      }
+    ]
+  }

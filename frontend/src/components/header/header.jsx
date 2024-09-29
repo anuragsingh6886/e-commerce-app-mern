@@ -4,10 +4,13 @@ import MobileHeader from './MobileHeader';
 import Logo from '../../../src/assetes/images/BrandLogo.svg';
 import userIcon from '../../../src/assetes/icons/userIcon.svg';
 import cartIcon from '../../../src/assetes/icons/cartIcon.svg';
-
+import useGoogleAuth from '../../hooks/useGoogleAuth';
 
 const Header = () => {
     const [isMobile, setIsMobile] = useState(false);
+    const { isLoggedIn, profile } = useGoogleAuth();
+
+    console.log('Header render - isLoggedIn:', isLoggedIn, 'profile:', profile);
 
     useEffect(() => {
         const handleResize = () => {
@@ -47,9 +50,16 @@ const Header = () => {
                     </Link>
                     </div>
                     <div className='user-icon'>
+                    {console.log('Rendering user icon - isLoggedIn:', isLoggedIn, 'profile:', profile)}
+                    {isLoggedIn && profile ? (
+                        <Link to="/profile">
+                            <button className='btn-with-icon'><img src={profile.picture} alt="user icon" style={{width: '32px', height: '32px', borderRadius: '50%'}} /></button>
+                        </Link>
+                        ) : (
                         <Link to="/login">
                             <button className='btn-with-icon'><img src={userIcon} alt="user icon" /></button>
                         </Link>
+                    )}
                     </div>
                 </div>
             </div>
