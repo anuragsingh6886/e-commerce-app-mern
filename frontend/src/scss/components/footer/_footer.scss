@@ -1,0 +1,77 @@
+.footer-main {
+    .footer-left {
+        gap: 1rem;
+        display: flex;
+        flex-direction: column;
+
+        .brand-logo {
+            width: 168px;
+            height: 44px;
+        }
+
+        .brand-desc {
+            width: 272px;
+
+            p {
+                font-size: 14px;
+            }
+        }
+
+        .brand-social {
+            gap: 1rem;
+
+            ul {
+                gap: 24px;
+            }
+        }
+    }
+
+    .footer-center {
+
+        .footer-links {
+            gap: 40px;
+
+            .head-text {
+                font-size: 14px;
+                line-height: 24.5px;
+                font-weight: 500;
+                color: $col-black-400;
+                text-transform: uppercase;
+                opacity: 0.7;
+            }
+
+            li a {
+                font-size: 14px;
+                line-height: 24.5px;
+            }
+        }
+    }
+
+    .footer-right {
+        .pay-text {
+            font-size: 14px;
+            line-height: 24.5px;
+            font-weight: 500;
+            color: $col-black-400;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+
+        .pay-icons {
+            li {
+                width: 42px;
+                height: 14px;
+            }
+        }
+    }
+}
+
+.footer-bottom {
+    p {
+        font-size: 14px;
+        line-height: 24.5px;
+        font-weight: 400;
+        margin: 27px 0;
+        padding: 0;
+    }
+}

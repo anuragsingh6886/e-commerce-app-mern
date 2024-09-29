@@ -23,8 +23,8 @@ const AppRouter = () => (
     <BrowserRouter>
         {promo && <div className="promo"><Promo /></div>}
         <Header/>
+        <IsBreadcrumbs />
         <div className='w-100 h-100 container'>
-            <IsBreadcrumbs />
             <Routes>
                 {routes.map(({ path, element: Element, exact }) => (
                     <Route

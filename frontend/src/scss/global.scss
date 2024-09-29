@@ -5,5 +5,11 @@
 @import "./variables";
 @import "./main";
 
+// common style
+@import "./components/common/breadcrumbs";
+
 // components style
 @import "./_promo";
+@import "./components/header/header";
+@import "./components/footer/footer";
+@import "./components/footer/newsletter";

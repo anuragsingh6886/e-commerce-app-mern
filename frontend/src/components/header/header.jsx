@@ -1,17 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import useGoogleAuth from '../../hooks/useGoogleAuth';
+import MobileHeader from './MobileHeader';
+import Logo from '../../../src/assetes/images/BrandLogo.svg';
+import userIcon from '../../../src/assetes/icons/userIcon.svg';
+import cartIcon from '../../../src/assetes/icons/cartIcon.svg';
+
 
 const Header = () => {
-    const { isLoggedIn, profile, login, logout } = useGoogleAuth();
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+          setIsMobile(window.innerWidth <= 800);
+        };
+
+        window.addEventListener('resize', handleResize);
+        handleResize();
+
+        return () => {
+          window.removeEventListener('resize', handleResize);
+        };
+      }, []);
 
     return (
         <nav className="container navbar navbar-expand-md">
-            <div className='header-main d-flex mx-2 px-2 align-items-center justify-content-between'>
-                <div className='header-logo header-left'>
-                    <h3>Ecommerce</h3>
+        {isMobile ? (
+            <MobileHeader />
+        ) : (
+            <div className='header-main d-flex mx-2 px-2 align-items-center justify-content-between w-100'>
+                <div className='header-logo'>
+                    <img src={Logo} alt="brand logo" />
                 </div>
-                <div className='header-menu header-center'>
+                <div className='header-menu header-center d-flex'>
                     <Link to="/">Home</Link>
                     <Link to="/categories">Categories</Link>
                     <Link to="/about">About</Link>
@@ -19,20 +39,21 @@ const Header = () => {
                 </div>
                 <div className='header-login header-right d-flex'>
                     <div className='search-field'>
-                        <h3>Search</h3>
+                        <input type="text" name="" id="" placeholder='Search Products' />
                     </div>
                     <div className='cart-icon'>
-                        <h3>Cart</h3>
+                    <Link to="/cart">
+                        <button className='btn-with-icon'><img src={cartIcon} alt="cart icon" /></button>
+                    </Link>
                     </div>
                     <div className='user-icon'>
-                        {isLoggedIn ? (
-                            <img src={profile.picture} alt="user image" onClick={logout} />
-                        ) : (
-                            <button onClick={login}>Sign in</button>
-                        )}
+                        <Link to="/login">
+                            <button className='btn-with-icon'><img src={userIcon} alt="user icon" /></button>
+                        </Link>
                     </div>
                 </div>
             </div>
+        )}
         </nav>
     );
 }

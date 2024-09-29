@@ -1,0 +1,41 @@
+.navbar {
+    background: $col-white-100;
+    position: sticky;
+    top: 0;
+
+    .header-main {
+        .header-logo {
+            width: 180px;
+            height: 40px;
+        }
+
+        .header-center {
+            gap: 2rem;
+        }
+
+        .header-right {
+            gap: 1rem;
+            align-items: center;
+
+            input {
+                width: 264px;
+                height: 45px;
+                background: none;
+                border: 1px solid $col-black-100;
+                border-radius: 4px;
+                padding: 0.75rem;
+                outline: none;
+
+                &::placeholder {
+                    color: $col-black-400;
+                }
+            }
+        }
+
+        .btn-with-icon {
+            background: none;
+            border: none;
+            outline: none;
+        }
+    }
+}
