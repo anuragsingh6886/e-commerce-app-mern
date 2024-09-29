@@ -1,6 +1,10 @@
 import React from "react";
 import { useLocation, Link } from "react-router-dom";
 
+/**
+ * A breadcrumbs component that displays the current path as a set of links.
+ * @returns {React.ReactElement} The breadcrumbs navigation component.
+ */
 const Breadcrumbs = () => {
     const location = useLocation();
     const pathnames = location.pathname.split('/').filter((x) => x);
