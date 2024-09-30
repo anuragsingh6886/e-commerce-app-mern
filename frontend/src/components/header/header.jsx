@@ -30,7 +30,7 @@ const Header = () => {
         ) : (
             <div className='header-main d-flex mx-2 px-2 align-items-center justify-content-between w-100'>
                 <div className='header-logo'>
-                    <img src={Logo} alt="brand logo" />
+                <Link to="/"><img src={Logo} alt="brand logo" /></Link>
                 </div>
                 <div className='header-menu header-center d-flex'>
                     <Link to="/">Home</Link>

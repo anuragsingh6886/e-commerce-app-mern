@@ -1,0 +1,16 @@
+.contact-page {
+    .phone-icon, .email-icon {
+        width: 48px;
+        height: 48px;
+        background: $col-white-200;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    img {
+        width: 24px;
+        height: 24px;
+    }
+}

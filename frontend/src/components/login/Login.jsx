@@ -1,20 +1,12 @@
 import React, { useState} from "react";
 import useGoogleAuth from '../../hooks/useGoogleAuth';
 import GoogleLogo from '../../assetes/icons/Google.svg';
-// import { useNavigate } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const { login } = useGoogleAuth();
-    // const navigate = useNavigate();
-
-    // useEffect(() => {
-    //     if (isLoggedIn) {
-    //         navigate('/'); // Redirect to home page after successful login
-    //     }
-    // }, [isLoggedIn, navigate]);
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -43,10 +35,10 @@ const Login = () => {
                         <label>Password</label>
                         <input type="password" name="" id="" value={password} onChange={(e) => setPassword(e.target.value)} required />
                     </div>
-                    <p className="forgot-password mt-3 d-flex justify-content-end">Forget Password?</p>
+                    <Link to="/forget-password"><p className="forgot-password mt-3 d-flex justify-content-end">Forget Password?</p></Link>
                     <button className='login-btn-custom w-100 mt-3' type="submit">Login</button>
                 </form>
-                <p className="dont-have-account mt-3 d-flex justify-content-center gap-1 align-items-center">Dont have an account? <a href="#">Sign up</a></p>
+                <p className="dont-have-account mt-3 d-flex justify-content-center gap-1 align-items-center">Dont have an account? <Link to="/signup"><a href="#">Sign up</a></Link></p>
             </div>
         </div>
     )

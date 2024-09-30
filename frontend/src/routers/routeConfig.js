@@ -7,6 +7,8 @@ import Categories from '../components/categories/CategoryList';
 import Login from '../components/login/Login';
 import Cart from '../components/basket/Cart';
 import Account from '../components/account/Account';
+import Signup from '../components/login/Signup';
+import ForgetPassword from '../components/login/ForgetPassword';
 
 const routes = [
     { path: '/', element: Home, exact: true },
@@ -18,6 +20,8 @@ const routes = [
     { path: '/login', element: Login },
     { path: '/profile', element: Account },
     { path: '/cart', element: Cart },
+    { path: '/signup', element: Signup },
+    { path: '/forget-password', element: ForgetPassword },
     { path: '*', element: Home }
 
   ];
