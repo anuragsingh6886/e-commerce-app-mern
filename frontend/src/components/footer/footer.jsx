@@ -12,7 +12,7 @@ const Footer = () => {
         <footer className="footer w-100">
             <NewsLetter />
             <div className='container'>
-                <div className='footer-main d-flex row mt-5'>
+                <div className='footer-main d-flex row mt-5 flex-lg-row flex-column'>
                     <div className='footer-left col-4'>
                         <div className='brand-logo'>
                             <img src={Logo} alt="brand logo" />

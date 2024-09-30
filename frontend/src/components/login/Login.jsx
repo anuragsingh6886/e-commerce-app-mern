@@ -23,7 +23,7 @@ const Login = () => {
     };
 
     return (
-        <div className='m-4 p-4 d-flex flex-column align-items-center w-100 login-page'>
+        <div className='m-lg-4 m-1 p-lg-4 p-1 d-flex flex-column align-items-center w-100 login-page'>
             <div className="google-login w-100 d-flex justify-content-center mb-3">
                 <button className='login-btn-google d-flex align-items-center justify-content-center gap-3' onClick={login}>
                     <img src={GoogleLogo} alt="google logo" className="google-logo" />

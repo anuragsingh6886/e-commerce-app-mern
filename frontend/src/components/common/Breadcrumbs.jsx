@@ -14,9 +14,9 @@ const Breadcrumbs = () => {
 
     return (
         <nav className="breadcrumbs-nav p-3" aria-label="Breadcrumb">
-            <div className="d-flex mt-3 flex-column container">
-                <h3 className="curr-page text-capitalize mb-3">{currentPageName}</h3>
-                <ol className="d-flex align-items-center p-0">
+            <div className="d-flex mt-lg-3 flex-column container">
+                <h3 className="curr-page text-capitalize mb-3 d-none d-lg-block">{currentPageName}</h3>
+                <ol className="d-flex align-items-center p-0 m-0">
                     <li className="">
                         <Link to="/" className="inline-flex items-center text-sm font-medium">
                         Home
@@ -31,7 +31,7 @@ const Breadcrumbs = () => {
                             <div className="flex items-center">
                             <Link
                                 to={routeTo}
-                                className={`ml-1 text-sm font-medium md:ml-2 ${
+                                className={`ml-1 text-sm font-medium lg:ml-2 ${
                                 isLast ? 'text-gray-500' : 'text-blue-600 hover:text-blue-800'
                                 }`}
                                 aria-current={isLast ? 'page' : undefined}

@@ -10,11 +10,9 @@ const Header = () => {
     const [isMobile, setIsMobile] = useState(false);
     const { isLoggedIn, profile } = useGoogleAuth();
 
-    console.log('Header render - isLoggedIn:', isLoggedIn, 'profile:', profile);
-
     useEffect(() => {
         const handleResize = () => {
-          setIsMobile(window.innerWidth <= 800);
+          setIsMobile(window.innerWidth <= 1024);
         };
 
         window.addEventListener('resize', handleResize);
@@ -26,7 +24,7 @@ const Header = () => {
       }, []);
 
     return (
-        <nav className="container navbar navbar-expand-md">
+        <nav className="container navbar navbar-expand-lg">
         {isMobile ? (
             <MobileHeader />
         ) : (
@@ -50,7 +48,6 @@ const Header = () => {
                     </Link>
                     </div>
                     <div className='user-icon'>
-                    {console.log('Rendering user icon - isLoggedIn:', isLoggedIn, 'profile:', profile)}
                     {isLoggedIn && profile ? (
                         <Link to="/profile">
                             <button className='btn-with-icon'><img src={profile.picture} alt="user icon" style={{width: '32px', height: '32px', borderRadius: '50%'}} /></button>
