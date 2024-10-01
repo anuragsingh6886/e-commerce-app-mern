@@ -1,5 +1,5 @@
 import React from 'react';
-import NewsLetter from './NewsLetter';
+import Newsletter from './Newsletter.jsx';
 import SocialIcons from '../common/SocialIcons.jsx';
 import Links from './Links.jsx';
 import Logo from '../../../src/assetes/images/BrandLogo.svg';
@@ -10,7 +10,7 @@ import amex from '../../../src/assetes/icons/payments/Amex.svg';
 const Footer = () => {
     return (
         <footer className="footer w-100">
-            <NewsLetter />
+            <Newsletter />
             <div className='container'>
                 <div className='footer-main d-flex row mt-5 flex-lg-row flex-column'>
                     <div className='footer-left col-4'>
