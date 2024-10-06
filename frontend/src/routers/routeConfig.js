@@ -9,6 +9,7 @@ import Cart from '../components/basket/Cart';
 import Account from '../components/account/Account';
 import Signup from '../components/login/Signup';
 import ForgetPassword from '../components/login/ForgetPassword';
+import FAQ from '../components/common/FAQSection';
 
 const routes = [
     { path: '/', element: Home },
@@ -22,6 +23,7 @@ const routes = [
     { path: '/cart', element: Cart, isProtected: true },
     { path: '/signup', element: Signup },
     { path: '/forget-password', element: ForgetPassword },
+    { path: '/faq', element: FAQ },
     { path: '*', element: Home }
 ];
 

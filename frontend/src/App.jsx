@@ -7,6 +7,7 @@ import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Promo from './components/header/Promo';
 import '../src/scss/global.scss';
+import "react-toastify/dist/ReactToastify.css";
 
 const promo = true; // set true to show promo
 

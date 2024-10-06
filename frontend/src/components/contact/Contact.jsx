@@ -1,13 +1,10 @@
 import React from 'react';
 import phoneIcon from '../../assetes/icons/icon-phone.svg';
 import emailIcon from '../../assetes/icons/icon-email.svg';
-import faceBook from '../../assetes/icons/social/Facebook.svg';
-import twitter from '../../assetes/icons/social/Twitter.svg';
-import instagram from '../../assetes/icons/social/Instagram.svg';
-import telegram from '../../assetes/icons/social/Telegram.svg';
-import youtube from '../../assetes/icons/social/Youtube.svg';
+import socailIcons from './scoialIcons';
 import faqIcon from '../../assetes/icons/icon-faq.svg';
 import { makePhoneCall, sendEmail } from '../../services/ContactServices';
+import { Link } from 'react-router-dom';
 
 const Contact = () => {
 
@@ -43,26 +40,18 @@ const Contact = () => {
                     <div className='email-detail d-flex flex-column gap-1 justify-content-center align-items-center'>
                         <span className='d-flex align-items-center justify-content-center flex-column gap-3'><img src={faqIcon} alt="FAQ icon" className='faq-icon' /><p className='m-0 p-0 head-text'>FAQ</p ></span>
                         <p>Have any questions? Frequently asked Questions</p>
-                        <button>Get FAQ</button>
+                        <Link to="/faq"><button>Get FAQ</button></Link>
                     </div>
                 </div>
             </div>
             <div className='social-icons d-flex flex-row justify-content-center gap-4 mt-md-5 mt-3 border-top border-bottom py-3 w-100'>
-                <div className='social-icon'>
-                    <img src={faceBook} alt="facebook-icon" />
-                </div>
-                <div className='social-icon'>
-                    <img src={twitter} alt="twitter-icon" />
-                </div>
-                <div className='social-icon'>
-                    <img src={instagram} alt="instagram-icon" />
-                </div>
-                <div className='social-icon'>
-                    <img src={telegram} alt="telegram-icon" />
-                </div>
-                <div className='social-icon'>
-                    <img src={youtube} alt="youtube-icon" />
-                </div>
+                {socailIcons.map((account, index) => (
+                    <div key={index} className='social-icon'>
+                        <a href={account.url} target="_blank" rel="noopener noreferrer">
+                            <img src={account.icon} alt={`${account.name}-icon`} />
+                        </a>
+                    </div>
+                ))}
             </div>
         </div>
     );
