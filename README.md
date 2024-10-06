@@ -16,6 +16,8 @@
 - Order tracking and history
 - Secure user authentication and authorization
 
+![image](https://github.com/user-attachments/assets/02715645-7840-47ae-94d9-4ef677a87afc)
+
 ### Technologies Used
 - <b>Frontend</b>: React, Redux, React Router, Bootstrap, SCSS
 - <b>Backend</b>: Node.js, Express, MongoDB
