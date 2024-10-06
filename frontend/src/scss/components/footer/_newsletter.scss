@@ -7,6 +7,15 @@
         align-items: center;
 
         .newsletter-left {
+            width: 100% !important;
+            padding: 0 16px 16px;
+
+
+            @include media-breakpoint-up(lg) {
+                width: 50% !important;
+                padding: 0;
+            }
+
             h3 {
                 font-size: 24px;
                 font-weight: 600;
@@ -26,8 +35,8 @@
             }
 
             input {
-                width: 264px;
-                height: 45px;
+                width: 200px;
+                height: 38px;
                 background: none;
                 border: 1px solid $col-black-100;
                 border-radius: 4px;
@@ -37,15 +46,24 @@
                 &::placeholder {
                     color: $col-black-400;
                 }
+
+                @include media-breakpoint-up(lg) {
+                    width: 264px;
+                    height: 45px;
+                }
             }
 
             .subs-btn {
                 background: $col-black-900;
                 color: $col-white-100;
                 border: none;
-                font-weight: 500;
-                padding: 12px 24px;
+                font-weight:  $font-weight-medium;
+                padding: 8px 12px;
                 border-radius: 4px;
+
+                @include media-breakpoint-up(lg) {
+                    padding: 12px 24px;
+                }
             }
         }
     }

@@ -4,11 +4,11 @@ import MobileHeader from './MobileHeader';
 import Logo from '../../../src/assetes/images/BrandLogo.svg';
 import userIcon from '../../../src/assetes/icons/userIcon.svg';
 import cartIcon from '../../../src/assetes/icons/cartIcon.svg';
-import useGoogleAuth from '../../hooks/useGoogleAuth';
+import { useAuth } from '../../provider/authProvider';
 
 const Header = () => {
     const [isMobile, setIsMobile] = useState(false);
-    const { isLoggedIn, profile } = useGoogleAuth();
+    const { token, profile } = useAuth();
 
     useEffect(() => {
         const handleResize = () => {
@@ -21,7 +21,7 @@ const Header = () => {
         return () => {
           window.removeEventListener('resize', handleResize);
         };
-      }, []);
+    }, []);
 
     return (
         <nav className="container navbar navbar-expand-lg">
@@ -48,9 +48,9 @@ const Header = () => {
                     </Link>
                     </div>
                     <div className='user-icon'>
-                    {isLoggedIn && profile ? (
+                    { token ? (
                         <Link to="/profile">
-                            <button className='btn-with-icon'><img src={profile.picture} alt="user icon" style={{width: '32px', height: '32px', borderRadius: '50%'}} /></button>
+                            <button className='btn-with-icon'><img src={profile?.picture || userIcon} alt="user icon" style={{width: '32px', height: '32px', borderRadius: '50%'}} /></button>
                         </Link>
                         ) : (
                         <Link to="/login">

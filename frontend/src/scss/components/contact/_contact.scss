@@ -1,12 +1,48 @@
 .contact-page {
-    .phone-icon, .email-icon {
-        width: 48px;
-        height: 48px;
-        background: $col-white-200;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .contact-info {
+        gap: 1.5rem;
+
+        @include media-breakpoint-up(lg) {
+            gap: 2.5rem;
+        }
+
+        .contact-sec, .email-sec, .faq-sec {
+            padding: 2rem;
+            background: $col-white-200;
+            border-radius: 8px;
+
+            .head-text {
+                font-weight: $font-weight-medium;
+            }
+
+            p {
+                font-weight: $font-weight-normal;
+            }
+        }
+
+        .phone-detail, .email-detail, .faq-detail {
+            gap: 0.5rem;
+
+            button {
+                background: $col-black-900;
+                color: $col-white-100;
+                border: none;
+                font-weight:  $font-weight-medium;
+                padding: 12px 24px;
+                border-radius: 4px;
+            }
+        }
+
+        .phone-icon, .email-icon, .faq-icon {
+            width: 42px;
+            height: 42px;
+            padding: 8px;
+            background: $col-white-300;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 
     img {
