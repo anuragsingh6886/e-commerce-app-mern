@@ -19,7 +19,7 @@ const routes = [
     { path: '/contact', element: Contact },
     { path: '/categories', element: Categories },
     { path: '/login', element: Login },
-    { path: '/profile', element: Account, isProtected: true },
+    { path: '/profile/*', element: Account, isProtected: true },
     { path: '/cart', element: Cart, isProtected: true },
     { path: '/signup', element: Signup },
     { path: '/forget-password', element: ForgetPassword },

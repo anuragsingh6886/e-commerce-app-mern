@@ -27,19 +27,24 @@ const Breadcrumbs = () => {
                         const routeTo = `/${pathnames.slice(0, index + 1).join('/')}`;
                         const isLast = index === pathnames.length - 1;
                         return (
-                        <li key={name}>
-                            <div className="flex items-center">
-                            <Link
-                                to={routeTo}
-                                className={`ml-1 text-sm font-medium lg:ml-2 ${
-                                isLast ? 'text-gray-500' : 'text-blue-600 hover:text-blue-800'
-                                }`}
-                                aria-current={isLast ? 'page' : undefined}
-                            >
-                                {name}
-                            </Link>
-                            </div>
-                        </li>
+                            <>
+                                <li key={name}>
+                                    <div className="flex items-center">
+                                        <Link
+                                            to={routeTo}
+                                            className={`text-capitalize ${
+                                            isLast ? 'text-gray-500' : 'text-blue-600 hover:text-blue-800'
+                                            }`}
+                                            aria-current={isLast ? 'page' : undefined}
+                                        >
+                                            {name}
+                                        </Link>
+                                    </div>
+                                </li>
+                                {!isLast && (
+                                <img src={RightIcon} alt="right icon" className="inline-flex items-center right-icon"/>
+                                )}
+                            </>
                         );
                     })}
                 </ol>

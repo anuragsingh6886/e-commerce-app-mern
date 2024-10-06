@@ -24,21 +24,30 @@ const Contact = () => {
             <div className='contact-info d-flex flex-md-row flex-column justify-content-center w-100'>
                 <div className='contact-sec d-flex flex-row gap-3 justify-content-center align-items-center w-100'>
                     <div className='phone-detail d-flex flex-column gap-1 justify-content-center align-items-center'>
-                        <span className='d-flex align-items-center justify-content-center flex-column gap-3'><img src={phoneIcon} alt="" className='phone-icon' /><p className='m-0 p-0 head-text'>Phone Support</p></span>
+                        <span className='d-flex align-items-center justify-content-center flex-column gap-3'>
+                            <img src={phoneIcon} alt="" className='phone-icon' />
+                            <p className='m-0 p-0 head-text'>Phone Support</p>
+                        </span>
                         <p>Call our support team now, 24/7 available.</p>
                         <button onClick={handlePhoneClick}>Call Now</button>
                     </div>
                 </div>
                 <div className='email-sec d-flex flex-row gap-3 justify-content-center align-items-center w-100'>
                     <div className='email-detail d-flex flex-column gap-1 justify-content-center align-items-center'>
-                        <span className='d-flex align-items-center justify-content-center flex-column gap-3'><img src={emailIcon} alt="" className='email-icon' /><p className='m-0 p-0 head-text'>Email Support</p></span>
+                        <span className='d-flex align-items-center justify-content-center flex-column gap-3'>
+                            <img src={emailIcon} alt="" className='email-icon' />
+                            <p className='m-0 p-0 head-text'>Email Support</p>
+                        </span>
                         <p>Send us an email and we will get back to you.</p>
                         <button onClick={handleEmailClick}>Send Email</button>
                     </div>
                 </div>
                 <div className='faq-sec d-flex flex-row gap-3 justify-content-center align-items-center w-100'>
                     <div className='email-detail d-flex flex-column gap-1 justify-content-center align-items-center'>
-                        <span className='d-flex align-items-center justify-content-center flex-column gap-3'><img src={faqIcon} alt="FAQ icon" className='faq-icon' /><p className='m-0 p-0 head-text'>FAQ</p ></span>
+                        <span className='d-flex align-items-center justify-content-center flex-column gap-3'>
+                            <img src={faqIcon} alt="FAQ icon" className='faq-icon' />
+                            <p className='m-0 p-0 head-text'>FAQ</p >
+                        </span>
                         <p>Have any questions? Frequently asked Questions</p>
                         <Link to="/faq"><button>Get FAQ</button></Link>
                     </div>

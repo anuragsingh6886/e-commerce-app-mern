@@ -1,0 +1,88 @@
+.hero-banner-home {
+    background: $col-white-200;
+    height: 268px;
+
+    @include media-breakpoint-up(lg) {
+        height: 440px;
+    }
+
+    .plp-cta-btn {
+        background: $col-black-900;
+        color: $col-white-100;
+        border: none;
+        font-weight:  $font-weight-medium;
+        padding: 8px 12px;
+        border-radius: 4px;
+
+        @include media-breakpoint-up(lg) {
+            padding: 12px 24px;
+        }
+    }
+
+    .right-banner-section {
+
+        img {
+            position: absolute;
+        }
+
+        .ellipse-image {
+            z-index: 1;
+            opacity: 0.6;
+            background: none;
+            height: 340px;
+            width: 380px;
+            top: 192px;
+            left: auto;
+        }
+
+        .hero-image {
+            z-index: 3;
+            background: none;
+            height: 382px;
+            width: 255px;
+            top: 146px;
+            left: auto;
+        }
+    }
+}
+
+.feature-home {
+    .feature-info {
+        gap: 1.5rem;
+
+        @include media-breakpoint-up(lg) {
+            gap: 2.5rem;
+        }
+
+        .delivery-sec, .star-sec, .payment-sec {
+            padding: 1rem;
+            margin: 0;
+
+            @include media-breakpoint-up(lg) {
+                padding: 2rem;
+                margin: 3rem;
+            }
+
+            .head-text {
+                font-weight: $font-weight-semibold;
+                font-size: 16px;
+            }
+
+            p {
+                font-weight: $font-weight-normal;
+                font-size: 14px;
+            }
+        }
+    }
+
+    img {
+        width: 32px;
+        height: 32px;
+        padding: 8px;
+        background: $col-white-300;
+        border-radius: 40%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

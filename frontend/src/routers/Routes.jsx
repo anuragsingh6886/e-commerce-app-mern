@@ -12,12 +12,12 @@ const ProtectedRoute = ({ children }) => {
     return children;
 };
 
-const AppRoutes  = () => {
+const AppRoutes = () => {
     const location = useLocation();
     const isHomePage = location.pathname === '/';
 
     return (
-        <div className='w-100 h-100 container'>
+        <div className='w-100 h-100'>
             {!isHomePage && <Breadcrumbs />}
             <Routes>
                 {routeConfig.map(({ path, element: Element, isProtected }) => (
@@ -40,4 +40,4 @@ const AppRoutes  = () => {
     );
 };
 
-export default AppRoutes ;
+export default AppRoutes;

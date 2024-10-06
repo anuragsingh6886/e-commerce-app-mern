@@ -61,6 +61,16 @@
             li {
                 width: 42px;
                 height: 14px;
+
+                img {
+                    width: 30px;
+                    height: 32px;
+
+                    @include media-breakpoint-up(lg) {
+                        width: 42px;
+                        height: 42px;
+                    }
+                }
             }
         }
     }
@@ -68,10 +78,15 @@
 
 .footer-bottom {
     p {
-        font-size: 14px;
+        font-size: 12px;
         line-height: 24.5px;
         font-weight: 400;
-        margin: 27px 0;
+        margin: 8px 0;
         padding: 0;
+
+        @include media-breakpoint-up(lg) {
+            margin: 27px 0;
+            font-size: 14px;
+        }
     }
 }
