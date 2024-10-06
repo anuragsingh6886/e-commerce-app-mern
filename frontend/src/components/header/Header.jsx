@@ -5,10 +5,12 @@ import Logo from '../../../src/assetes/images/BrandLogo.svg';
 import userIcon from '../../../src/assetes/icons/userIcon.svg';
 import cartIcon from '../../../src/assetes/icons/cartIcon.svg';
 import { useAuth } from '../../provider/authProvider';
+import { useUserProfile } from '../../provider/profileProvider';
 
 const Header = () => {
     const [isMobile, setIsMobile] = useState(false);
-    const { token, profile } = useAuth();
+    const { token } = useAuth();
+    const { profile } = useUserProfile();
 
     useEffect(() => {
         const handleResize = () => {

@@ -34,6 +34,7 @@ const Login = () => {
 
     const handleGoogleLogin = async () => {
         googleLogin();
+        navigate('/');
     };
 
     return (

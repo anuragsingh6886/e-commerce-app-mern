@@ -1,10 +1,11 @@
-import { useState, useCallback } from 'react';
+import { useCallback } from 'react';
 import { googleLogout, useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 import { useAuth } from '../provider/authProvider';
+import { useUserProfile } from '../provider/profileProvider';
 
 const useGoogleAuth = () => {
-    const [profile, setProfile] = useState(null);
+    const { profile, setProfile } = useUserProfile();
     const { setTokenNew } = useAuth();
 
     const handleGoogleLogin = useCallback(async (codeResponse) => {
