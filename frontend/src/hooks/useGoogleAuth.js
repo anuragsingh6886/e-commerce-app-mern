@@ -1,5 +1,6 @@
 import { useCallback } from 'react';
 import { googleLogout, useGoogleLogin } from '@react-oauth/google';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '../provider/authProvider';
 import { useUserProfile } from '../provider/profileProvider';
@@ -7,6 +8,7 @@ import { useUserProfile } from '../provider/profileProvider';
 const useGoogleAuth = () => {
     const { profile, setProfile } = useUserProfile();
     const { setTokenNew } = useAuth();
+    const navigate = useNavigate();
 
     const handleGoogleLogin = useCallback(async (codeResponse) => {
         try {
@@ -18,7 +20,7 @@ const useGoogleAuth = () => {
             const { token, user } = response.data;
             setTokenNew(token);
             setProfile(user);
-
+            navigate('/');
         } catch (err) {
             console.error('Error in Google authentication:', err);
             setTokenNew(null);

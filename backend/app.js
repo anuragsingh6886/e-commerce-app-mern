@@ -3,6 +3,7 @@ const cors = require('cors');
 const { OAuth2Client } = require('google-auth-library');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
+const db = require('./db');
 
 // const limiter = require('./rate-limiter');
 
@@ -12,6 +13,8 @@ app.use(cors());
 // app.use(limiter());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+db.connectDB();
 
 const client = new OAuth2Client(
     process.env.GOOGLE_CLIENT_ID,

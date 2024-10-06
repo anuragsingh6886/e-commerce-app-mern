@@ -11,19 +11,18 @@ import Signup from '../components/login/Signup';
 import ForgetPassword from '../components/login/ForgetPassword';
 
 const routes = [
-    { path: '/', element: Home, exact: true },
+    { path: '/', element: Home },
     { path: '/product', element: Product },
     { path: '/plp', element: PLP },
     { path: '/about', element: About },
     { path: '/contact', element: Contact },
     { path: '/categories', element: Categories },
     { path: '/login', element: Login },
-    { path: '/profile', element: Account },
-    { path: '/cart', element: Cart },
+    { path: '/profile', element: Account, isProtected: true },
+    { path: '/cart', element: Cart, isProtected: true },
     { path: '/signup', element: Signup },
     { path: '/forget-password', element: ForgetPassword },
     { path: '*', element: Home }
-
-  ];
+];
 
 export default routes;

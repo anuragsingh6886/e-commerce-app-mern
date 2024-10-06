@@ -1,18 +1,27 @@
-import React, { StrictMode } from 'react';
-import AppRouter from './routers/AppRouter';
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import AppRoutes  from './routers/Routes';
 import AuthProvider from "./provider/authProvider";
-import UserProfileProvider from "./provider/profileProvider";
+import { UserProfileProvider } from "./provider/profileProvider";
+import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
+import Promo from './components/header/Promo';
 import '../src/scss/global.scss';
+
+const promo = true; // set true to show promo
 
 function App() {
     return (
-        <StrictMode>
+        <Router>
             <AuthProvider>
                 <UserProfileProvider>
-                    <AppRouter />
+                    {promo && <Promo />}
+                    <Header />
+                    <AppRoutes />
+                    <Footer />
                 </UserProfileProvider>
             </AuthProvider>
-        </StrictMode>
+        </Router>
     );
 }
 

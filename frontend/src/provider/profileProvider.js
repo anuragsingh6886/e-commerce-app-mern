@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState } from "react";
 
 const UserProfileContext = createContext();
 
-const UserProfileProvider  = ({ children }) => {
+export const UserProfileProvider = ({ children }) => {
     const [profile, setProfile] = useState(null);
 
     return (
@@ -12,6 +12,6 @@ const UserProfileProvider  = ({ children }) => {
     );
 }
 
-export default UserProfileProvider
-
 export const useUserProfile = () => useContext(UserProfileContext);
+
+export default UserProfileProvider;
