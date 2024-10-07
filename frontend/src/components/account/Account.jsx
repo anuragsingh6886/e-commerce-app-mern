@@ -64,7 +64,7 @@ const Account = () => {
                 </div>
 
                 {/* Right side content */}
-                <div className="col account-content">
+                <div className="col account-content d-flex align-items-center justify-content-center">
                     <Routes>
                         {navLinks.map((link) => (
                             <Route

@@ -17,6 +17,11 @@
         @include media-breakpoint-up(lg) {
             padding: 12px 24px;
         }
+
+        .arrow {
+            width: 24px;
+            height: 24px;
+        }
     }
 
     .right-banner-section {
