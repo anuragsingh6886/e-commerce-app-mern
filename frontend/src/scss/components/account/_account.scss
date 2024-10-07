@@ -1,0 +1,34 @@
+.account-page {
+    .account-nav {
+        border-right: 2px solid  $col-black-100;
+        border-radius: 1px;
+    }
+
+    .account-content {
+        margin: 42px 0;
+    }
+
+    .action-link-list {
+        margin: 38px 14px;
+        gap: 16px;
+        display: flex;
+        flex-direction: column;
+
+        img {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    .action-link {
+        border-radius: 8px;
+        padding: 2px 18px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .action-link-active {
+        background: $col-white-200;
+    }
+}
