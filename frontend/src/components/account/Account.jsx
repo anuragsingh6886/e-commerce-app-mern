@@ -50,7 +50,7 @@ const Account = () => {
                                     <img src={link.icon} alt={link.name} />
                                     <Link
                                         to={`/profile/${link.path}`}
-                                        className={`text-center p-2 ${
+                                        className={`text-center text-nowrap p-2 ${
                                             activeLink === link.path ? 'text-dark' : 'text-secondary'
                                         }`}
                                         onClick={() => setActiveLink(link.path)}

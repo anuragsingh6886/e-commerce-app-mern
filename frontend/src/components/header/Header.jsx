@@ -46,17 +46,17 @@ const Header = () => {
                     </div>
                     <div className='cart-icon'>
                     <Link to="/cart">
-                        <button className='btn-with-icon'><img src={cartIcon} alt="cart icon" /></button>
+                        <button className='btn-with-icon'><img src={cartIcon} alt="cart icon" className='cart-icon' /></button>
                     </Link>
                     </div>
                     <div className='user-icon'>
                     { token ? (
                         <Link to="/profile">
-                            <button className='btn-with-icon'><img src={profile?.picture || userIcon} alt="user icon" style={{width: '32px', height: '32px', borderRadius: '50%'}} /></button>
+                            <button className='btn-with-icon'><img src={profile?.picture || userIcon} alt="user icon" className='user-image' /></button>
                         </Link>
                         ) : (
                         <Link to="/login">
-                            <button className='btn-with-icon'><img src={userIcon} alt="user icon" /></button>
+                            <button className='btn-with-icon'><img src={userIcon} alt="user icon" className='user-image' /></button>
                         </Link>
                     )}
                     </div>

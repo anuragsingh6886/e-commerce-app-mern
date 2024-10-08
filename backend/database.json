@@ -1,0 +1,12 @@
+{
+    "users": [
+      {
+        "email": "test@gmail.com",
+        "password": "$2b$10$N3G3Xs6YjXs0Z7g6TqX1a.7TJnYK5yW4pXh7XqXs8ZK0vZ5g3Vnq"
+      },
+      {
+        "email": "hey@kumarharsh.me",
+        "password": "$2b$10$Lrm/GG7Klwylen9MXifus.H/TardFqnvBjD8LYXXjiuzEx.kXbz2u"
+      }
+    ]
+  }

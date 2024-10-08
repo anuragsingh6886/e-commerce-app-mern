@@ -48,7 +48,7 @@ const Login = () => {
                 <span className="m-0 p-0 ">OR</span>
             </div>
             <div className="custom-login">
-                <form onSubmit={handleLogin}>
+                <form>
                     <div className="email-sec d-flex flex-column mb-2">
                         <label>Email</label>
                         <input type="email" name="" id="" value={email} onChange={(e) => setEmail(e.target.value)} required />
@@ -58,7 +58,7 @@ const Login = () => {
                         <input type="password" name="" id="" value={password} onChange={(e) => setPassword(e.target.value)} required />
                     </div>
                     <Link to="/forget-password"><p className="forgot-password mt-3 d-flex justify-content-end">Forget Password?</p></Link>
-                    <button className='login-btn-custom w-100 mt-3' type="submit">Login</button>
+                    <button className='login-btn-custom w-100 mt-3' type="submit" onClick={handleLogin} >Login</button>
                 </form>
                 <p className="dont-have-account mt-3 d-flex justify-content-center gap-1 align-items-center">Dont have an account? <Link to="/signup"><a href="#">Sign up</a></Link></p>
             </div>
