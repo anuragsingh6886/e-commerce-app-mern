@@ -8,7 +8,7 @@
 
 ### Features
 - User-friendly interface for customers to browse and purchase products
-- Secure transaction processing using [insert payment gateway]
+- Secure transaction processing using multiple payment gateway
 - Admin dashboard for managing products, orders, and customer information
 - Support for multiple product categories and subcategories
 - Product filtering and sorting by price, brand, and rating
