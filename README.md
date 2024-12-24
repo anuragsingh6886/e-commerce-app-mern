@@ -59,3 +59,7 @@ This project is licensed under the MIT License.
 
 ### Acknowledgments
 Figma design inspiration: [Ecommerce Web UI Kit (Community)](https://www.figma.com/design/Q0cHGGQc7Y7uLxJQwTik8X/Ecommerce-Web-UI-Kit-(Community)?node-id=92-229&node-type=canvas&t=BPCgQLqs4UHunCM3-0)
+
+
+Backend database Flow:
+controller (first interaction point) --> Service (api logic layer) --> Repository (db query layer) -->  models (table replica - DB)

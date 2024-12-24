@@ -26,43 +26,43 @@ const Header = () => {
     }, []);
 
     return (
-        <nav className="container navbar navbar-expand-lg">
-        {isMobile ? (
-            <MobileHeader />
-        ) : (
-            <div className='header-main d-flex mx-2 px-2 align-items-center justify-content-between w-100'>
-                <div className='header-logo'>
-                <Link to="/"><img src={Logo} alt="brand logo" /></Link>
-                </div>
-                <div className='header-menu header-center d-flex'>
-                    <Link to="/">Home</Link>
-                    <Link to="/categories">Categories</Link>
-                    <Link to="/about">About</Link>
-                    <Link to="/contact">Contact</Link>
-                </div>
-                <div className='header-login header-right d-flex'>
-                    <div className='search-field'>
-                        <input type="text" name="" id="" placeholder='Search Products' />
+        <nav className="container navbar navbar-expand-lg z-10">
+            {isMobile ? (
+                <MobileHeader />
+            ) : (
+                <div className='header-main d-flex mx-2 px-2 align-items-center justify-content-between w-100'>
+                    <div className='header-logo'>
+                    <Link to="/"><img src={Logo} alt="brand logo" /></Link>
                     </div>
-                    <div className='cart-icon'>
-                    <Link to="/cart">
-                        <button className='btn-with-icon'><img src={cartIcon} alt="cart icon" className='cart-icon' /></button>
-                    </Link>
+                    <div className='header-menu header-center d-flex'>
+                        <Link to="/">Home</Link>
+                        <Link to="/categories">Categories</Link>
+                        <Link to="/about">About</Link>
+                        <Link to="/contact">Contact</Link>
                     </div>
-                    <div className='user-icon'>
-                    { token ? (
-                        <Link to="/profile">
-                            <button className='btn-with-icon'><img src={profile?.picture || userIcon} alt="user icon" className='user-image' /></button>
+                    <div className='header-login header-right d-flex'>
+                        <div className='search-field'>
+                            <input type="text" name="" id="" placeholder='Search Products' />
+                        </div>
+                        <div className='cart-icon'>
+                        <Link to="/cart">
+                            <button className='btn-with-icon'><img src={cartIcon} alt="cart icon" className='cart-icon' /></button>
                         </Link>
-                        ) : (
-                        <Link to="/login">
-                            <button className='btn-with-icon'><img src={userIcon} alt="user icon" className='user-image' /></button>
-                        </Link>
-                    )}
+                        </div>
+                        <div className='user-icon'>
+                        { token ? (
+                            <Link to="/profile">
+                                <button className='btn-with-icon'><img src={profile?.picture || userIcon} alt="user icon" className='user-image' /></button>
+                            </Link>
+                            ) : (
+                            <Link to="/login">
+                                <button className='btn-with-icon'><img src={userIcon} alt="user icon" className='user-image' /></button>
+                            </Link>
+                        )}
+                        </div>
                     </div>
                 </div>
-            </div>
-        )}
+            )}
         </nav>
     );
 }

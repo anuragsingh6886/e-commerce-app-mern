@@ -3,12 +3,30 @@ const cors = require('cors');
 const { OAuth2Client } = require('google-auth-library');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
+const userRoutes = require('./routes/user');
+const authRoutes = require('./routes/auth');
+const connectDB = require('./config/database');
+
+connectDB();
 
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: 'http://localhost:3000',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept'],
+  credentials: true
+}
+
+app.use(cors(corsOptions));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+
+// Routes
+app.use('/api/users', userRoutes);
+app.use('/api/auth', authRoutes);
 
 const client = new OAuth2Client(
     process.env.GOOGLE_CLIENT_ID,
