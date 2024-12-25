@@ -34,9 +34,9 @@
         }
 
         .phone-icon, .email-icon, .faq-icon {
-            width: 32px;
-            height: 32px;
-            padding: 8px;
+            width: 34px;
+            height: 34px;
+            padding: 6px;
             background: $col-white-300;
             border-radius: 40%;
             display: flex;
@@ -45,7 +45,7 @@
         }
     }
 
-    img {
+    .social-icon-icon {
         width: 24px;
         height: 24px;
     }

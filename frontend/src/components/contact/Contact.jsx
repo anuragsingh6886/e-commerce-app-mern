@@ -1,12 +1,22 @@
 import React from 'react';
-import phoneIcon from '../../assetes/icons/icon-phone.svg';
-import emailIcon from '../../assetes/icons/icon-email.svg';
-import socailIcons from './scoialIcons';
+import { BiPhoneCall, BiMailSend } from "react-icons/bi";
+import { BsTwitterX, BsFacebook, BsInstagram, BsTelegram, BsYoutube, BsLinkedin } from "react-icons/bs";
+// import phoneIcon from '../../assetes/icons/icon-phone.svg';
+// import emailIcon from '../../assetes/icons/icon-email.svg';
 import faqIcon from '../../assetes/icons/icon-faq.svg';
 import { makePhoneCall, sendEmail } from '../../services/ContactServices';
 import { Link } from 'react-router-dom';
 
 const Contact = () => {
+
+    const socailIcons = [
+        { name: 'Facebook', icon: BsFacebook, url: 'https://www.facebook.com/yourpage' },
+        { name: 'Twitter', icon: BsTwitterX, url: 'https://www.twitter.com/yourhandle' },
+        { name: 'Instagram', icon: BsInstagram, url: 'https://www.instagram.com/yourprofile' },
+        { name: 'Telegram', icon: BsTelegram, url: 'https://t.me/yourchannel' },
+        { name: 'YouTube', icon: BsYoutube, url: 'https://www.youtube.com/yourchannel' },
+        { name: 'LinkedIn', icon: BsLinkedin, url: 'https://www.linkedin.com/yourprofile' },
+    ];
 
     const phoneNumber = '1234567890';
     const email = 'wXqz8@example.com';
@@ -25,7 +35,8 @@ const Contact = () => {
                 <div className='contact-sec d-flex flex-row gap-3 justify-content-center align-items-center w-100'>
                     <div className='phone-detail d-flex flex-column gap-1 justify-content-center align-items-center'>
                         <span className='d-flex align-items-center justify-content-center flex-column gap-3'>
-                            <img src={phoneIcon} alt="" className='phone-icon' />
+                            {/* <img src={phoneIcon} alt="" className='phone-icon' /> */}
+                            <BiPhoneCall className='phone-icon' />
                             <p className='m-0 p-0 head-text'>Phone Support</p>
                         </span>
                         <p>Call our support team now, 24/7 available.</p>
@@ -35,7 +46,8 @@ const Contact = () => {
                 <div className='email-sec d-flex flex-row gap-3 justify-content-center align-items-center w-100'>
                     <div className='email-detail d-flex flex-column gap-1 justify-content-center align-items-center'>
                         <span className='d-flex align-items-center justify-content-center flex-column gap-3'>
-                            <img src={emailIcon} alt="" className='email-icon' />
+                            {/* <img src={emailIcon} alt="" className='email-icon' /> */}
+                            <BiMailSend className='email-icon' />
                             <p className='m-0 p-0 head-text'>Email Support</p>
                         </span>
                         <p>Send us an email and we will get back to you.</p>
@@ -57,7 +69,7 @@ const Contact = () => {
                 {socailIcons.map((account, index) => (
                     <div key={index} className='social-icon'>
                         <a href={account.url} target="_blank" rel="noopener noreferrer">
-                            <img src={account.icon} alt={`${account.name}-icon`} />
+                            <account.icon alt={`${account.name}-icon`} className='social-icon-icon' />
                         </a>
                     </div>
                 ))}

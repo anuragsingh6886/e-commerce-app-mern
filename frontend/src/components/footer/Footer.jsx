@@ -1,6 +1,6 @@
 import React from 'react';
 import Newsletter from './Newsletter.jsx';
-import SocialIcons from '../common/SocialIcons.jsx';
+import { BsTwitterX, BsFacebook, BsInstagram, BsYoutube } from "react-icons/bs";
 import Links from './Links.jsx';
 import Logo from '../../../src/assetes/images/BrandLogo.svg';
 import mastercard from '../../../src/assetes/icons/payments/Mastercard.svg';
@@ -8,6 +8,14 @@ import visa from '../../../src/assetes/icons/payments/Visa.svg';
 import amex from '../../../src/assetes/icons/payments/Amex.svg';
 
 const Footer = () => {
+
+    const socailIcons = [
+        { name: 'Facebook', icon: BsFacebook, url: '#' },
+        { name: 'Twitter', icon: BsTwitterX, url: '#' },
+        { name: 'Instagram', icon: BsInstagram, url: '#' },
+        { name: 'YouTube', icon: BsYoutube, url: '#' },
+    ];
+
     return (
         <footer className="footer w-100">
             <Newsletter />
@@ -21,7 +29,15 @@ const Footer = () => {
                             <p>DevCut is a YouTube channel for practical project-based learning.</p>
                         </div>
                         <div className='brand-social'>
-                            <SocialIcons />
+                        <ul className="social-icons d-flex m-0 p-0">
+                            {socailIcons.map((icon) => (
+                                <li key={icon.name}>
+                                    <a href={icon.url}>
+                                        <icon.icon className='social-icon' />
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
                         </div>
                     </div>
                     <div className='footer-center col-5'>
