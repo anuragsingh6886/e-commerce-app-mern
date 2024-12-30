@@ -15,7 +15,7 @@ const Login = () => {
     const [isLoading, setIsLoading] = useState(false);
     const { setTokenNew } = useAuth();
     const navigate = useNavigate();
-    const { login: googleLogin } = useGoogleAuth();
+    const { login } = useGoogleAuth();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -81,7 +81,7 @@ const Login = () => {
     const handleGoogleLogin = async () => {
         try {
             setIsLoading(true);
-            await googleLogin();
+            await login();
         } catch (error) {
             toast.error('Google login failed. Please try again.');
             console.error('Google login error:', error);
@@ -95,7 +95,7 @@ const Login = () => {
             <div className="google-login w-100 d-flex justify-content-center mb-2">
                 <button
                     className='login-btn-google d-flex align-items-center justify-content-center gap-3'
-                    onClick={handleGoogleLogin}
+                    onClick={handleGoogleLogin }
                     disabled={isLoading}
                     type="button"
                 >

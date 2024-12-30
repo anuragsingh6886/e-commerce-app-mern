@@ -6,6 +6,8 @@ import { useAuth } from '../provider/authProvider';
 import { useUserProfile } from '../provider/profileProvider';
 import { toast } from 'react-toastify';
 
+const API_BASE_URL = 'http://localhost:4000';
+
 const useGoogleAuth = () => {
     const { profile, setProfile } = useUserProfile();
     const { setTokenNew } = useAuth();
@@ -16,33 +18,40 @@ const useGoogleAuth = () => {
     const handleGoogleLogin = useCallback(async (codeResponse) => {
         try {
             // Send the authorization code to your backend
-            const response = await axios.post('http://localhost:4000/api/auth/google', {
+            const response = await axios.post(`${API_BASE_URL}/api/auth/google`, {
                 code: codeResponse.code
+            }, {
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                withCredentials: true
             });
 
             const { token, user } = response.data;
+
+            if (!token || !user) {
+                throw new Error('Invalid response from server');
+            }
+
             setTokenNew(token);
             setProfile(user);
             navigate('/');
-            toast.success('Login successful!', {
-                position: toast.POSITION.TOP_CENTER,
-                autoClose: 5000
-            });
+            toast.success('Login successful!');
         } catch (err) {
             console.error('Error in Google authentication:', err);
             setTokenNew(null);
-            toast.error('Login failed!', {
-                position: toast.POSITION.TOP_CENTER,
-                autoClose: 5000
-            });
+            toast.error(err.response?.data?.error || 'Login failed');
         }
-    }, [setTokenNew]);
+    }, [setTokenNew, setProfile, navigate]);
 
     toast.configure();
 
     const login = useGoogleLogin({
         onSuccess: handleGoogleLogin,
-        onError: (error) => console.error('Google Login Failed:', error),
+        onError: (error) => {
+            console.error('Google Login Failed:', error);
+            toast.error('Google login failed');
+        },
         flow: 'auth-code',
     });
 
@@ -50,7 +59,8 @@ const useGoogleAuth = () => {
         googleLogout();
         setProfile(null);
         setTokenNew(null);
-    }, [setTokenNew]);
+        navigate('/login');
+    }, [setProfile, setTokenNew, navigate]);
 
     return { profile, login, logout };
 };

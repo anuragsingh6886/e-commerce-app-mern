@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const userRoutes = require('./routes/user');
 const authRoutes = require('./routes/auth');
+const productRoutes = require('./routes/product');
 const connectDB = require('./config/database');
 
 connectDB();
@@ -12,10 +13,11 @@ connectDB();
 const app = express();
 
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: ['http://localhost:3000', 'https://e-commerce-app-mern-nine.vercel.app/', 'http://localhost:3001'],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept'],
-  credentials: true
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+  optionsSuccessStatus: 200
 }
 
 app.use(cors(corsOptions));
@@ -27,6 +29,7 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/products', productRoutes);
 
 const client = new OAuth2Client(
     process.env.GOOGLE_CLIENT_ID,

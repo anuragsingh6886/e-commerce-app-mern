@@ -1,19 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { GoogleOAuthProvider } from "@react-oauth/google"
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import axios from 'axios';
+const API_BASE_URL = 'http://localhost:4000';
+
+const Root = () => {
+    const [googleConfig, setGoogleConfig] = useState(null);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchGoogleConfig = async () => {
+            try {
+                const response = await axios.get(`${API_BASE_URL}/api/auth/google/config`);
+                setGoogleConfig(response.data);
+            } catch (err) {
+                setError('Failed to initialize authentication');
+                console.error('Google config fetch error:', err);
+            }
+        };
+        fetchGoogleConfig();
+    }, []);
+
+    if (error) return <div className="text-red-500 p-4">{error}</div>;
+    if (!googleConfig) return <div className="p-4">Loading...</div>;
+
+    return (
+        <GoogleOAuthProvider clientId={googleConfig.clientId}>
+            <React.StrictMode>
+                <App />
+            </React.StrictMode>
+        </GoogleOAuthProvider>
+    );
+};
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_API_TOKEN}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </GoogleOAuthProvider>
-);
+root.render(<Root />);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
