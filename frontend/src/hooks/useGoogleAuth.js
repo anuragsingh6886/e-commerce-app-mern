@@ -13,8 +13,6 @@ const useGoogleAuth = () => {
     const { setTokenNew } = useAuth();
     const navigate = useNavigate();
 
-    toast.configure();
-
     const handleGoogleLogin = useCallback(async (codeResponse) => {
         try {
             // Send the authorization code to your backend
@@ -43,8 +41,6 @@ const useGoogleAuth = () => {
             toast.error(err.response?.data?.error || 'Login failed');
         }
     }, [setTokenNew, setProfile, navigate]);
-
-    toast.configure();
 
     const login = useGoogleLogin({
         onSuccess: handleGoogleLogin,

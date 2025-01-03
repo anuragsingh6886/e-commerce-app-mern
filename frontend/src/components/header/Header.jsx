@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import MobileHeader from './MobileHeader';
-import Logo from '../../../src/assetes/images/BrandLogo.svg';
-import userIcon from '../../../src/assetes/icons/userIcon.svg';
-import cartIcon from '../../../src/assetes/icons/cartIcon.svg';
+import Logo from '../../assetes/images/BrandLogo.svg';
+import userIcon from '../../assetes/icons/userIcon.svg';
+import cartIcon from '../../assetes/icons/cartIcon.svg';
 import { useAuth } from '../../provider/authProvider';
 import { useUserProfile } from '../../provider/profileProvider';
 
@@ -26,7 +26,7 @@ const Header = () => {
     }, []);
 
     return (
-        <nav className="container navbar navbar-expand-lg z-10">
+        <nav className="navbar navbar-expand-lg z-3">
             {isMobile ? (
                 <MobileHeader />
             ) : (

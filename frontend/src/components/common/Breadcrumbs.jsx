@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation, Link } from "react-router-dom";
-import RightIcon from "../../../src/assetes/icons/right-icon.png";
+import RightIcon from "../../assetes/icons/right-icon.png";
 
 /**
  * A breadcrumbs component that displays the current path as a set of links.

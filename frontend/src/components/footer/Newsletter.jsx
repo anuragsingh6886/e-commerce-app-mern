@@ -5,8 +5,6 @@ const Newsletter = () => {
     const [email, setEmail] = useState('');
     const [isEmailValid, setIsEmailValid] = useState(true);
 
-    toast.configure();
-
     const handleEmailChange = (event) => {
         setEmail(event.target.value);
     };
@@ -17,10 +15,7 @@ const Newsletter = () => {
             setIsEmailValid(false);
         } else {
             setIsEmailValid(true);
-            toast.success(`Thank you for subscribing with ${email}`, {
-                position: toast.POSITION.TOP_CENTER,
-                autoClose: 5000
-            });
+            toast.success(`Thank you for subscribing with ${email}`);
             setEmail("");
         }
     };

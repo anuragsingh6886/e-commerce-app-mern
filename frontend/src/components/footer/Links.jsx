@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import linksData from '../../../src/components/footer/links.json';
+import linksData from './links.json';
 
 const Links = () => {
     const [links, setLinks] = useState([]);

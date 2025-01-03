@@ -2,10 +2,10 @@ import React from 'react';
 import Newsletter from './Newsletter.jsx';
 import { BsTwitterX, BsFacebook, BsInstagram, BsYoutube } from "react-icons/bs";
 import Links from './Links.jsx';
-import Logo from '../../../src/assetes/images/BrandLogo.svg';
-import mastercard from '../../../src/assetes/icons/payments/Mastercard.svg';
-import visa from '../../../src/assetes/icons/payments/Visa.svg';
-import amex from '../../../src/assetes/icons/payments/Amex.svg';
+import Logo from '../../assetes/images/BrandLogo.svg';
+import mastercard from '../../assetes/icons/payments/Mastercard.svg';
+import visa from '../../assetes/icons/payments/Visa.svg';
+import amex from '../../assetes/icons/payments/Amex.svg';
 
 const Footer = () => {
 

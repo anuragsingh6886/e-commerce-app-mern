@@ -63,3 +63,7 @@ Figma design inspiration: [Ecommerce Web UI Kit (Community)](https://www.figma.c
 
 Backend database Flow:
 controller (first interaction point) --> Service (api logic layer) --> Repository (db query layer) -->  models (table replica - DB)
+
+for hosting backend
+- https://www.youtube.com/watch?v=cVEOhgPziO8
+- https://dashboard.render.com/web/new?newUser=true

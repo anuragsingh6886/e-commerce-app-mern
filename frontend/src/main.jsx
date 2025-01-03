@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import axios from 'axios';
 const API_BASE_URL = 'http://localhost:4000';
+import ErrorPage from './components/common/ErrorPage';
 
 const Root = () => {
     const [googleConfig, setGoogleConfig] = useState(null);
@@ -23,7 +23,7 @@ const Root = () => {
         fetchGoogleConfig();
     }, []);
 
-    if (error) return <div className="text-red-500 p-4">{error}</div>;
+    if (error) return <ErrorPage message={error} />;
     if (!googleConfig) return <div className="p-4">Loading...</div>;
 
     return (
@@ -37,5 +37,3 @@ const Root = () => {
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<Root />);
-
-reportWebVitals();

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Logo from '../../../src/assetes/images/BrandLogo.svg';
-import menuIcon from '../../../src/assetes/icons/Menu.svg';
+import Logo from '../../assetes/images/BrandLogo.svg';
+import menuIcon from '../../assetes/icons/Menu.svg';
 
 const MobileHeader = () => {
     return (
