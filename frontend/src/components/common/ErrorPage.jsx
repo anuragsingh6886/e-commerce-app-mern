@@ -1,28 +1,20 @@
 import React from 'react';
 
-function getData() {
-  // This function is used to get data from the server
-}
-
-const ErrorPage = ({
-  title = 'Something went wrong',
-  message = message,
-  retry = getData(),
-}) => {
+const ErrorPage = ({ title, message, retry, status }) => {
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-gray-50">
-      <div className="max-w-md w-full">
-        <h1 className="text-2xl font-bold text-center text-red-500">{title}</h1>
-        <p className="text-center text-gray-500">{message}</p>
+    <div className="d-flex align-items-center justify-content-center vh-100 bg-light p-4">
+      <div className="w-100 border border-danger rounded p-4" style={{ maxWidth: '400px' }}>
+        <h3 className="text-center text-danger fw-bold">{status} : {title}</h3>
+        <h6 className="text-center text-muted">{message}</h6>
         {retry && (
-            <div className="mt-4 flex justify-center">
-                <button
-                className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
-                onClick={retry}
-                >
-                Retry
-                </button>
-            </div>
+          <div className="mt-4 d-flex justify-content-center">
+            <button
+              className="btn btn-danger"
+              onClick={retry}
+            >
+              Retry
+            </button>
+          </div>
         )}
       </div>
     </div>

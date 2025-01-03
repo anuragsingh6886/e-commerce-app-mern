@@ -23,7 +23,7 @@ const Root = () => {
         fetchGoogleConfig();
     }, []);
 
-    if (error) return <ErrorPage message={error} />;
+    if (error) return <ErrorPage title="Page Not Found" status={500} message={error} retry={() => window.location.reload()} />;
     if (!googleConfig) return <div className="p-4">Loading...</div>;
 
     return (

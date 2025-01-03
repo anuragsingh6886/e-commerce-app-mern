@@ -10,6 +10,7 @@ import Account from '../components/account/Account';
 import Signup from '../components/login/Signup';
 import ForgetPassword from '../components/login/ForgetPassword';
 import FAQ from '../components/common/FAQSection';
+import NotFound from '../components/common/NotFound';
 
 const routes = [
     { path: '/', element: Home },
@@ -24,7 +25,7 @@ const routes = [
     { path: '/signup', element: Signup },
     { path: '/forget-password', element: ForgetPassword },
     { path: '/faq', element: FAQ },
-    { path: '*', element: Home }
+    { path: '*', element: NotFound },
 ];
 
 export default routes;
