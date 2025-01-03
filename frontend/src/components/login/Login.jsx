@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../provider/authProvider';
 import useGoogleAuth from '../../hooks/useGoogleAuth';
 import GoogleLogo from '../../assetes/icons/Google.svg';
+import { useUserProfile } from '../../provider/profileProvider';
 import { toast } from 'react-toastify';
 
 const API_BASE_URL = 'http://localhost:4000/api/auth';
@@ -16,6 +17,7 @@ const Login = () => {
     const { setTokenNew } = useAuth();
     const navigate = useNavigate();
     const { login } = useGoogleAuth();
+    const { setProfile } = useUserProfile();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -62,6 +64,7 @@ const Login = () => {
 
             // Then try to parse the JSON
             const data = await response.json();
+            setProfile(data.user);
 
             if (data.token) {
                 setTokenNew(data.token);
