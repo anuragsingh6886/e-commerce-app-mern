@@ -1,6 +1,6 @@
 import React from 'react';
 import { Sidebar } from '../components/layout/Sidebar.jsx';
-import { useProducts } from '../hooks/useProducts'; 
+import { useProducts } from '../hooks/useProducts';
 
 
 export const HomePage = () => {
