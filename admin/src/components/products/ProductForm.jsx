@@ -55,6 +55,7 @@ export const ProductForm = ({ product, onSubmit, onCancel }) => {
       })
     } catch (error) {
       console.error('Error creating product:', error.response?.data || error);
+      toast.error('Error creating product');
     }
   };
 
