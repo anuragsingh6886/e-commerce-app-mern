@@ -13,7 +13,7 @@ connectDB();
 const app = express();
 
 const corsOptions = {
-  origin: ['http://localhost:3000', 'https://e-commerce-app-mern-navy.vercel.app/', 'http://localhost:3001'],
+  origin: ['http://localhost:3000', 'https://e-commerce-app-mern-navy.vercel.app/', 'http://localhost:3001', 'https://e-commerce-app-mern-backend.onrender.com/'],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
