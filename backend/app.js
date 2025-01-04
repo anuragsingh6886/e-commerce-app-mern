@@ -36,7 +36,6 @@ app.use(express.json());
 app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
-app.use('/uploads', express.static('uploads'));
 
 app.use((err, req, res, next) => {
   console.error('Unhandled Error:', err);
