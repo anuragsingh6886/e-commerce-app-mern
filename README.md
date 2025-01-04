@@ -3,8 +3,8 @@
 ### Overview
 - This is a scalable, user-friendly e-commerce platform built from scratch to handle a wide range of products, process secure transactions, and provide an excellent user experience for customers and administrators.
 
-- Admin Portal: https://e-commerce-app-mern-7rud.vercel.app/
-- User Website: https://e-commerce-app-mern-nine.vercel.app/
+- Admin Portal: https://e-commerce-app-mern-admin.vercel.app/
+- User Website: https://e-commerce-app-mern-navy.vercel.app/
 
 ### Features
 - User-friendly interface for customers to browse and purchase products
