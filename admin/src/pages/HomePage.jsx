@@ -21,7 +21,7 @@ export const HomePage = () => {
                         <div className="card-body">
                             <h5 className="card-title">Total Products</h5>
                             <p className="card-text fs-2">
-                                {loading ? 'Loading...' : error ? 'Error' : productCount}
+                                {loading ? 'Loading...' : error ? '0' : productCount}
                             </p>
                         </div>
                     </div>
