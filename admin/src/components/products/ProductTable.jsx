@@ -16,9 +16,11 @@ export const ProductTable = ({ products, onEdit, onDelete }) => {
           <tr>
             <th>Product Name</th>
             <th>Price</th>
-            <th>Stock SQU</th>
+            <th>SQU</th>
+            <th>Image</th>
             <th>Category</th>
-            <th>Product Description</th>
+            <th>Brand</th>
+            <th>Description</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -26,9 +28,13 @@ export const ProductTable = ({ products, onEdit, onDelete }) => {
           {products.map(product => (
             <tr key={product.id}>
               <td>{product.name}</td>
-              <td>${product.price}</td>
+              <td>₹{product.price}</td>
               <td>{product.stock}</td>
+              <td>
+                <img src={product.image} alt={product.name} style={{ width: '100px' , height: '50px' }} />
+              </td>
               <td>{product.category}</td>
+              <td>{product.brand}</td>
               <td>{product.description}</td>
               <td>
                 <ProductActions

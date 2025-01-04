@@ -1,28 +1,28 @@
-import React from "react";
-import { Pencil, Trash2 } from "lucide-react";
+import React from 'react';
 
 export const ProductActions = ({ product, onEdit, onDelete }) => {
-  const handleDelete = () => {
-    if (window.confirm("Are you sure you want to delete this product?")) {
-      onDelete(product.id);
+  const handleDelete = async () => {
+    if (window.confirm('Are you sure you want to delete this product?')) {
+      onDelete(product._id);
     }
   };
 
   return (
-    <div className="flex gap-2">
+    <div className="d-flex gap-2">
       <button
+        className="btn btn-link text-primary p-1"
         onClick={() => onEdit(product)}
-        className="p-1 text-blue-600 hover:bg-blue-50 rounded"
         title="Edit product"
       >
-        <Pencil className="w-4 h-4" />
+        Edit
       </button>
       <button
+        className="btn btn-link text-danger p-1"
         onClick={handleDelete}
-        className="p-1 text-red-600 hover:bg-red-50 rounded"
         title="Delete product"
-      />
-      <Trash2 className="w-4 h-4" />
+      >
+        Delete
+      </button>
     </div>
   );
 };

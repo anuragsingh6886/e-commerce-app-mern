@@ -17,6 +17,10 @@ export const validateProduct = (product) => {
       errors.category = 'Category is required';
     }
 
+    if (!product.brand?.trim()) {
+      errors.brand = 'Brand is required';
+    }
+
     return {
       isValid: Object.keys(errors).length === 0,
       errors

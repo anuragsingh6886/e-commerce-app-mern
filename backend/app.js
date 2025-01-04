@@ -23,13 +23,25 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.urlencoded({ extended: true }));
 
+// app.use((req, res, next) => {
+//   console.log('Request Headers:', req.headers);
+//   console.log('Raw Body:', req.body);
+//   console.log('Content-Type:', req.headers['content-type']);
+//   next();
+// });
 
 // Routes
 app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
+app.use('/uploads', express.static('uploads'));
+
+app.use((err, req, res, next) => {
+  console.error('Unhandled Error:', err);
+  res.status(500).json({ message: 'Something went wrong!' });
+});
 
 const client = new OAuth2Client(
     process.env.GOOGLE_CLIENT_ID,

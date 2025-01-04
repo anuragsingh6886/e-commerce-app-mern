@@ -4,12 +4,14 @@ import { productAPI } from '../services/api';
 export const useProducts = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [productCount, setProductCount] = useState(null);
   const [error, setError] = useState(null);
 
   const fetchProducts = useCallback(async () => {
     try {
       setLoading(true);
       const data = await productAPI.fetchAll();
+      setProductCount(data.length);
       console.log('Fetched products:', data);
       setProducts(data);
       setError(null);
@@ -24,22 +26,6 @@ export const useProducts = () => {
   useEffect(() => {
     fetchProducts();
   }, [fetchProducts]);
-
-  const createProduct = async (productData) => {
-    try {
-      setLoading(true);
-      console.log('Creating product with data:', productData);
-      const created = await productAPI.create(productData);
-      console.log('Created product:', created);
-      await fetchProducts();
-    } catch (err) {
-      console.error('Error creating product:', err);
-      setError(err.message);
-      throw err;
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const updateProduct = async (id, productData) => {
     try {
@@ -75,9 +61,9 @@ export const useProducts = () => {
 
   return {
     products,
+    productCount,
     loading,
     error,
-    createProduct,
     updateProduct,
     deleteProduct,
     refreshProducts: fetchProducts

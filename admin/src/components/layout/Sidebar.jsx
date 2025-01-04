@@ -3,13 +3,13 @@ import { Link, useLocation } from 'react-router-dom';
 
 export const Sidebar = () => {
   const location = useLocation();
-  
+
   const isActive = (path) => {
-    return location.pathname === path ? 'active' : '';
+    return location.pathname === path ? 'active text-primary fw-semibold' : 'text-dark';
   };
 
   return (
-    <nav className="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+    <nav className="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse vh-100">
       <div className="position-sticky pt-3">
         <ul className="nav flex-column">
           <li className="nav-item">
@@ -17,25 +17,25 @@ export const Sidebar = () => {
               Dashboard
             </Link>
           </li>
-          <li className="nav-item">
+          <li className="nav-item ">
             <Link to="/products/add" className={`nav-link ${isActive('/products/add')}`}>
               Add Product
             </Link>
           </li>
           <li className="nav-item">
             <Link to="/products" className={`nav-link ${isActive('/products')}`}>
-              List Products
+              Product List
             </Link>
           </li>
           <li className="nav-item">
-            {/* <Link to="/categories" className={`nav-link ${isActive('/categories')}`}> */}
+            <Link to="/categories" className={`nav-link ${isActive('/categories')}`}>
               Categories
-            {/* </Link> */}
+            </Link>
           </li>
           <li className="nav-item">
-            {/* <Link to="/orders" className={`nav-link ${isActive('/orders')}`}> */}
+            <Link to="/orders" className={`nav-link ${isActive('/orders')}`}>
               Orders
-            {/* </Link> */}
+            </Link>
           </li>
         </ul>
       </div>

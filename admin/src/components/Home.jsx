@@ -3,7 +3,7 @@ import { Sidebar } from '../components/layout/Sidebar.jsx';
 
 export const Home = () => {
     return (
-        <div className="container-fluid">
+        <div className="container-fluid mt-5 pt-2">
             <div className="row">
                 <Sidebar />
                 <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">

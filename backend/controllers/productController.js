@@ -12,9 +12,11 @@ const productController = {
 
     createProduct: async (req, res) => {
         try {
+            console.log('Request Body:', req.body);
             const product = await Product.create(req.body);
             res.status(201).json(product);
         } catch (err) {
+            console.error('Error creating product:', err);
             res.status(500).json({ error: err.message });
         }
     },

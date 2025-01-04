@@ -12,7 +12,7 @@ export const productAPI = {
     const response = await axios.post(`${API_BASE_URL}/products`, productData, {
       headers: {
         'Content-Type': 'application/json',
-      }
+      },
     });
     return response.data;
   },
