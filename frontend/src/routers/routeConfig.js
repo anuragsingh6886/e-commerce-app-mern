@@ -14,7 +14,8 @@ import NotFound from '../components/common/NotFound';
 
 const routes = [
     { path: '/', element: Home },
-    { path: '/product', element: Product },
+    { path: '/product:', element: Product },
+    { path: '/product/:id', element: Product },
     { path: '/plp', element: PLP },
     { path: '/about', element: About },
     { path: '/contact', element: Contact },

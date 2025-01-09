@@ -22,6 +22,16 @@ const productController = {
         }
     },
 
+    getProductById: async (req, res) => {
+        try {
+            const { id } = req.params;
+            const product = await Product.findById(id);
+            res.json(product);
+        } catch (err) {
+            res.status(500).json({ error: err.message });
+        }
+    },
+
     updateProduct: async (req, res) => {
         try {
             const { id } = req.params;
