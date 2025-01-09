@@ -15,7 +15,14 @@ const app = express();
 
 const corsOptions = {
   credentials:true,
-  origin:['http://localhost:3000', 'http://localhost:3001'],
+  origin:[
+    'http://localhost:3000',
+    'http://localhost:3001',
+    'https://e-commerce-app-frontend-gjl2.onrender.com',
+    'https://e-commerce-app-admin-c9ag.onrender.com',
+    'https://e-commerce-app-mern-navy.vercel.app',
+    'https://e-commerce-app-mern-admin.vercel.app'
+  ],
   optionSuccessStatus:200,
 }
 
