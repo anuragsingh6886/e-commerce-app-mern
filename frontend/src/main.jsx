@@ -5,8 +5,8 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import axios from "axios";
 import ErrorPage from "./components/common/ErrorPage";
 import { LineWave } from "react-loader-spinner";
+import API_BASE_URL from "./config/api.js";
 
-const API_BASE_URL = "http://localhost:4000";
 
 const Root = () => {
   const [googleConfig, setGoogleConfig] = useState(null);
@@ -16,7 +16,7 @@ const Root = () => {
     const fetchGoogleConfig = async () => {
       try {
         const response = await axios.get(
-          `${API_BASE_URL}/api/auth/google/config`
+          `${API_BASE_URL}/auth/google/config`
         );
         setGoogleConfig(response.data);
       } catch (err) {

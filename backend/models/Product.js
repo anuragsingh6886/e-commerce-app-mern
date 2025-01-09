@@ -6,10 +6,19 @@ const productSchema = new mongoose.Schema({
     required: [true, "Product name is required"],
     trim: true,
   },
-  price: {
+  listPrice: {
     type: Number,
     required: [true, "Price is required"],
     min: [0, "Price cannot be negative"],
+  },
+  sellingPrice: {
+    type: Number,
+    required: [true, "Price is required"],
+    min: [0, "Price cannot be negative"],
+  },
+  image: {
+    type: String,
+    required: [true, "Image is required"],
   },
   stock: {
     type: Number,
@@ -22,9 +31,9 @@ const productSchema = new mongoose.Schema({
     trim: true,
   },
   category: {
-    type: String,
-    required: [true, "Category is required"],
-    trim: true,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Category',
+    required: true
   },
   description: {
     type: String,
@@ -34,6 +43,10 @@ const productSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now,
+  },
+  isFeatured: {
+    type: Boolean,
+    default: false,
   },
 });
 

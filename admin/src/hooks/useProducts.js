@@ -1,8 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
-import { productAPI } from '../services/api';
+import { productAPI, categoryAPI } from '../services/api';
 
 export const useProducts = () => {
   const [products, setProducts] = useState([]);
+  const [categoryCount, setCategoryCount] = useState([]);
   const [loading, setLoading] = useState(false);
   const [productCount, setProductCount] = useState(null);
   const [error, setError] = useState(null);
@@ -10,10 +11,11 @@ export const useProducts = () => {
   const fetchProducts = useCallback(async () => {
     try {
       setLoading(true);
-      const data = await productAPI.fetchAll();
-      setProductCount(data.length);
-      console.log('Fetched products:', data);
-      setProducts(data);
+      const productData = await productAPI.fetchAll();
+      setProductCount(productData.length);
+      setProducts(productData);
+      const categoryData = await categoryAPI.fetchAll();
+      setCategoryCount(categoryData.length);
       setError(null);
     } catch (err) {
       console.error('Error fetching products:', err);
@@ -62,6 +64,7 @@ export const useProducts = () => {
   return {
     products,
     productCount,
+    categoryCount,
     loading,
     error,
     updateProduct,

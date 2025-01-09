@@ -1,6 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { categoryAPI } from '../../services/api';
+import { toast } from 'react-toastify';
 
 export const CategoryTable = () => {
+    const [category, setCategory] = useState([]);
+
+    useEffect(() => {
+        const fetchCategories = async () => {
+            const categories = await categoryAPI.fetchAll();
+            setCategory(categories);
+        };
+        fetchCategories();
+    })
+
+    const deleteCategory = async (event) => {
+        const categoryId = event.target.closest('tr').cells[0].textContent;
+        await categoryAPI.delete(categoryId);
+        setCategory(category.filter((cat) => cat._id !== categoryId));
+        toast.warning('Category deleted successfully');
+    }
+
+    if (category.length === 0) {
+        return <div className="alert alert-warning" role="alert">No categories found.</div>;
+    }
+
     return (
         <div className="table-responsive">
             <table className="table table-hover">
@@ -12,30 +35,16 @@ export const CategoryTable = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr key="1">
-                        <td>1</td>
-                        <td>Category One</td>
-                        <td className="d-flex gap-2">
-                            <button type="button" className="btn btn-link text-primary p-1">Edit</button>
-                            <button type="button" className="btn btn-link text-danger p-1">Delete</button>
-                        </td>
-                    </tr>
-                    <tr key="1">
-                        <td>2</td>
-                        <td>Category Two</td>
-                        <td className="d-flex gap-2">
-                            <button type="button" className="btn btn-link text-primary p-1">Edit</button>
-                            <button type="button" className="btn btn-link text-danger p-1">Delete</button>
-                        </td>
-                    </tr>
-                    <tr key="1">
-                        <td>3</td>
-                        <td>Category Three</td>
-                        <td className="d-flex gap-2">
-                            <button type="button" className="btn btn-link text-primary p-1">Edit</button>
-                            <button type="button" className="btn btn-link text-danger p-1">Delete</button>
-                        </td>
-                    </tr>
+                    {category.map((cat) => (
+                        <tr key={cat._id}>
+                            <td>{cat._id}</td>
+                            <td>{cat.name}</td>
+                            <td className="d-flex gap-2">
+                                <button type="button" className="btn btn-link text-primary p-1">Edit</button>
+                                <button type="button" className="btn btn-link text-danger p-1"  onClick={deleteCategory}>Delete</button>
+                            </td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
         </div>

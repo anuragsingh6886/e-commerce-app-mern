@@ -1,20 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import { validateProduct } from '../../utils/validators';
-import { productAPI } from '../../services/api';
+import { productAPI, categoryAPI } from '../../services/api';
 import { toast } from 'react-toastify';
 
 export const ProductForm = ({ product, onSubmit, onCancel }) => {
   const [formData, setFormData] = useState({
     name: '',
-    price: '',
+    listPrice: '',
+    sellingPrice: '',
     stock: '',
+    image: '',
     brand: '',
     category: '',
     description: ''
   });
 
+  const [categories, setCategories] = useState([]);
   const [errors, setErrors] = useState({});
 
+  useEffect(() => {
+    // Fetch categories
+    const fetchCategories = async () => {
+      try {
+        const response = await categoryAPI.fetchAll() || [];
+        setCategories(response);
+        console.log('Categories fetched:', response);
+      } catch (error) {
+        console.error('Error fetching categories:', error);
+        toast.error('Failed to load categories');
+      }
+    };
+
+    fetchCategories();
+  }, []);
 
   useEffect(() => {
     if (product) {
@@ -47,8 +65,10 @@ export const ProductForm = ({ product, onSubmit, onCancel }) => {
       // clear form data
       setFormData({
         name: '',
-        price: '',
+        listPrice: '',
+        sellingPrice: '',
         stock: '',
+        image: '',
         brand: '',
         category: '',
         description: ''
@@ -61,49 +81,69 @@ export const ProductForm = ({ product, onSubmit, onCancel }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="mb-3">
-        <label className="form-label">Product Name</label>
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleInputChange}
-          className={`form-control ${errors.name ? 'is-invalid' : ''}`}
-        />
-        {errors.name && <div className="invalid-feedback">{errors.name}</div>}
+      
+      <div className="row">
+        <div className="col-9 mb-3">
+          <label className="form-label">Product Name</label>
+          <input
+            type="text"
+            name="name"
+            placeholder='Enter product name'
+            value={formData.name}
+            onChange={handleInputChange}
+            className={`form-control ${errors.name ? 'is-invalid' : ''}`}
+          />
+          {errors.name && <div className="invalid-feedback">{errors.name}</div>}
+        </div>
+
+        <div className="col-3 mb-3">
+            <label className="form-label">SKU</label>
+            <input
+              type="number"
+              name="stock"
+              placeholder='Enter quantity'
+              value={formData.stock}
+              onChange={handleInputChange}
+              className={`form-control ${errors.stock ? 'is-invalid' : ''}`}
+            />
+            {errors.stock && <div className="invalid-feedback">{errors.stock}</div>}
+        </div>
       </div>
 
       <div className="row">
         <div className="col mb-3">
-          <label className="form-label">Price: <b>(₹)</b></label>
+          <label className="form-label">Selling Price: <b>(₹)</b></label>
           <input
             type="number"
-            name="price"
-            value={formData.price}
+            name="sellingPrice"
+            placeholder='Enter selling price'
+            value={formData.sellingPrice}
             onChange={handleInputChange}
-            className={`form-control ${errors.price ? 'is-invalid' : ''}`}
+            className={`form-control ${errors.sellingPrice ? 'is-invalid' : ''}`}
           />
-          {errors.price && <div className="invalid-feedback">{errors.price}</div>}
+          {errors.sellingPrice && <div className="invalid-feedback">{errors.sellingPrice}</div>}
         </div>
 
         <div className="col mb-3">
-          <label className="form-label">SKU</label>
+          <label className="form-label">List Price: <b>(₹)</b></label>
           <input
             type="number"
-            name="stock"
-            value={formData.stock}
+            name="listPrice"
+            placeholder='Enter list price'
+            value={formData.listPrice}
             onChange={handleInputChange}
-            className={`form-control ${errors.stock ? 'is-invalid' : ''}`}
+            className={`form-control ${errors.listPrice ? 'is-invalid' : ''}`}
           />
-          {errors.stock && <div className="invalid-feedback">{errors.stock}</div>}
+          {errors.listPrice && <div className="invalid-feedback">{errors.listPrice}</div>}
         </div>
       </div>
 
       <div className='mb-3'>
-        <label className="form-label">Product Image</label>
+        <label className="form-label">Product Image URL:</label>
         <input
-          type="file"
+          type="text"
           name="image"
+          placeholder='https://example.com/image.jpg or https://example.com/image.URL'
           value={formData.image}
           onChange={handleInputChange}
           className={`form-control ${errors.image ? 'is-invalid' : ''}`}
@@ -114,13 +154,20 @@ export const ProductForm = ({ product, onSubmit, onCancel }) => {
       <div className='row'>
         <div className="col mb-3">
           <label className="form-label">Product Category</label>
-          <input
-            type="text"
+          <select
             name="category"
+            placeholder='Select category'
             value={formData.category}
             onChange={handleInputChange}
             className={`form-control ${errors.category ? 'is-invalid' : ''}`}
-          />
+          >
+            <option value="">Select Category</option>
+            {categories.map(cat => (
+              <option key={cat._id} value={cat._id}>
+                {cat.name}
+              </option>
+            ))}
+          </select>
           {errors.category && <div className="invalid-feedback">{errors.category}</div>}
         </div>
 
@@ -129,6 +176,7 @@ export const ProductForm = ({ product, onSubmit, onCancel }) => {
           <input
             type="text"
             name="brand"
+            placeholder='Enter product brand'
             value={formData.brand}
             onChange={handleInputChange}
             className={`form-control ${errors.category ? 'is-invalid' : ''}`}
@@ -138,9 +186,10 @@ export const ProductForm = ({ product, onSubmit, onCancel }) => {
       </div>
 
       <div className="mb-3">
-        <label className="form-label">Description</label>
+        <label className="form-label">Product Description</label>
         <textarea
           name="description"
+          placeholder='Enter product description'
           value={formData.description}
           onChange={handleInputChange}
           className={`form-control ${errors.description ? 'is-invalid' : ''}`}

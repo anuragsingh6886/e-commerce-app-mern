@@ -5,8 +5,7 @@ import axios from 'axios';
 import { useAuth } from '../provider/authProvider';
 import { useUserProfile } from '../provider/profileProvider';
 import { toast } from 'react-toastify';
-
-const API_BASE_URL = 'http://localhost:4000';
+import API_BASE_URL from '../config/api';
 
 const useGoogleAuth = () => {
     const { profile, setProfile } = useUserProfile();
@@ -16,7 +15,7 @@ const useGoogleAuth = () => {
     const handleGoogleLogin = useCallback(async (codeResponse) => {
         try {
             // Send the authorization code to your backend
-            const response = await axios.post(`${API_BASE_URL}/api/auth/google`, {
+            const response = await axios.post(`${API_BASE_URL}/auth/google`, {
                 code: codeResponse.code
             }, {
                 headers: {

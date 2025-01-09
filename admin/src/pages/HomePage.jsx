@@ -5,7 +5,7 @@ import { useProducts } from '../hooks/useProducts';
 
 export const HomePage = () => {
 
-    const { productCount, loading, error } = useProducts();
+    const { productCount, categoryCount, loading, error } = useProducts();
 
     return (
         <div className="container-fluid mt-5 pt-2">
@@ -38,7 +38,7 @@ export const HomePage = () => {
                     <div className="card">
                         <div className="card-body">
                         <h5 className="card-title">Categories</h5>
-                        <p className="card-text fs-2">12</p>
+                        <p className="card-text fs-2">{loading ? 'Loading...' : error ? '0' : categoryCount}</p>
                         </div>
                     </div>
                     </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ProductTable } from '../components/products/ProductTable';
 import { useProducts } from '../hooks/useProducts';
+import { Link } from 'react-router-dom';
 
 export const ProductManagement = () => {
   const { products, loading, error, updateProduct, deleteProduct } = useProducts();
@@ -13,6 +14,7 @@ export const ProductManagement = () => {
     <div className="container-fluid p-4">
       <div className="d-flex justify-content-between align-items-center mb-4">
         <h1 className="h2">Product List</h1>
+        <Link to="/products/add" className="btn btn-primary">Create Product</Link>
       </div>
 
       <ProductTable

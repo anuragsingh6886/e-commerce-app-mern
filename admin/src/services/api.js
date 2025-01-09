@@ -26,3 +26,23 @@ export const productAPI = {
     await axios.delete(`${API_BASE_URL}/products/${id}`);
   }
 };
+
+export const categoryAPI = {
+  fetchAll: async () => {
+    const response = await axios.get(`${API_BASE_URL}/categories`);
+    return response.data;
+  },
+
+  create: async (categoryData) => {
+    const response = await axios.post(`${API_BASE_URL}/categories`, categoryData, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    return response.data;
+  },
+
+  delete: async (id) => {
+    await axios.delete(`${API_BASE_URL}/categories/${id}`);
+  }
+};

@@ -5,12 +5,24 @@ export const validateProduct = (product) => {
       errors.name = 'Product name is required';
     }
 
-    if (!product.price || product.price <= 0) {
-      errors.price = 'Valid price is required';
+    if (!product.listPrice || product.listPrice <= 0) {
+      errors.listPrice = 'Valid list price is required';
+    }
+
+    if (!product.sellingPrice || product.sellingPrice <= 0) {
+      errors.sellingPrice = 'Valid selling price is required';
     }
 
     if (!product.stock || product.stock < 0) {
       errors.stock = 'Valid stock quantity is required';
+    }
+
+    if (!product.description?.trim()) {
+      errors.description = 'Description is required';
+    }
+
+    if (!product.image || !product.image.startsWith('http')) {
+      errors.listPrice = 'Valid image is required';
     }
 
     if (!product.category?.trim()) {

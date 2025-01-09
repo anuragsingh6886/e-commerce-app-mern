@@ -9,34 +9,39 @@ import { ProductActions } from './ProductActions.jsx';
  * @param {Function} onDelete the function to call when a product is deleted
  */
 export const ProductTable = ({ products, onEdit, onDelete }) => {
+
+  if (products.length === 0) {
+    return <div className="alert alert-warning" role="alert">No products found.</div>;
+  }
+
+  console.log('Products:', products);
+
   return (
     <div className="table-responsive">
       <table className="table table-hover">
         <thead className="table-light">
-          <tr>
-            <th>Product Name</th>
-            <th>Price</th>
-            <th>SQU</th>
-            <th>Image</th>
-            <th>Category</th>
-            <th>Brand</th>
-            <th>Description</th>
-            <th>Actions</th>
+          <tr className="text-center fw-semibold text-uppercase fs-6">
+            <th className='w-25 text-center align-middle'>Product Name</th>
+            <th className='w-auto text-center align-middle'>Price</th>
+            <th className='text-center align-middle'>SQU</th>
+            <th className='w-25 text-center align-middle'>Image</th>
+            <th className='text-center align-middle'>Category</th>
+            <th className='text-center align-middle'>Brand</th>
+            <th className='w-25 text-center align-middle'>Actions</th>
           </tr>
         </thead>
         <tbody>
           {products.map(product => (
-            <tr key={product.id}>
-              <td>{product.name}</td>
-              <td>₹{product.price}</td>
-              <td>{product.stock}</td>
-              <td>
-                <img src={product.image} alt={product.name} style={{ width: '100px' , height: '50px' }} />
+            <tr key={product._id}>
+              <td className='text-center align-middle'>{product.name}</td>
+              <td className='text-center align-middle'>₹{product.sellingPrice}</td>
+              <td className='text-center align-middle'>{product.stock}</td>
+              <td className="text-center align-middle">
+                <img src={product.image} alt={product.name} style={{ width: '75%' , height: '75%' }} />
               </td>
-              <td>{product.category}</td>
-              <td>{product.brand}</td>
-              <td>{product.description}</td>
-              <td>
+              <td className='text-center align-middle'>{product.category ? product.category.name : ''}</td>
+              <td className='text-center align-middle'>{product.brand}</td>
+              <td className="text-center align-middle">
                 <ProductActions
                   product={product}
                   onEdit={onEdit}
