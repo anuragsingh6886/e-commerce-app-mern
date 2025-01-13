@@ -9,6 +9,57 @@
             height: 40px;
         }
 
+        .dropdown-btn {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            min-width: 200px;
+        }
+
+        .dropdown-btn:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-item-wrapper {
+            position: relative;
+        }
+
+        .dropdown-item {
+            padding: 8px 16px;
+            display: block;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f5f5f5;
+        }
+
+        .submenu-dropdown {
+            position: absolute;
+            left: 100%;
+            top: 0;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            min-width: 200px;
+            display: block;
+        }
+
+        .chevron-right {
+            margin-left: 8px;
+        }
+
         .header-center {
             gap: 2rem;
         }

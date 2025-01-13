@@ -6,11 +6,37 @@ import userIcon from '../../assetes/icons/userIcon.svg';
 import cartIcon from '../../assetes/icons/cartIcon.svg';
 import { useAuth } from '../../provider/authProvider';
 import { useUserProfile } from '../../provider/profileProvider';
+import ChevronDown from '../../assetes/icons/chevronDown.svg';
 
 const Header = () => {
     const [isMobile, setIsMobile] = useState(false);
+    const [activeCategory, setActiveCategory] = useState(null);
     const { token } = useAuth();
     const { profile } = useUserProfile();
+
+     // Category data structure with two levels
+     const categories = {
+        men: {
+            name: 'Men',
+            subcategories: ['Shirts', 'Pants', 'Shoes', 'Accessories']
+        },
+        women: {
+            name: 'Women',
+            subcategories: ['Dresses', 'Tops', 'Bottoms', 'Shoes']
+        },
+        kids: {
+            name: 'Kids',
+            subcategories: ['Boys', 'Girls', 'Infants', 'Toys']
+        },
+        accessories: {
+            name: 'Accessories',
+            subcategories: ['Bags', 'Jewelry', 'Belts', 'Sunglasses']
+        },
+        watches: {
+            name: 'Watches',
+            subcategories: ['Analog', 'Digital', 'Smart', 'Luxury']
+        }
+    };
 
     useEffect(() => {
         const handleResize = () => {
@@ -25,6 +51,14 @@ const Header = () => {
         };
     }, []);
 
+    const handleCategoryHover = (category) => {
+        setActiveCategory(category);
+    };
+
+    const handleMouseLeave = () => {
+        setActiveCategory(null);
+    };
+
     return (
         <nav className="navbar navbar-expand-lg z-3">
             {isMobile ? (
@@ -36,7 +70,52 @@ const Header = () => {
                     </div>
                     <div className='header-menu header-center d-flex'>
                         <Link to="/">Home</Link>
-                        <Link to="/categories">Categories</Link>
+                        <div className="dropdown-btn" onMouseLeave={handleMouseLeave} >
+                            <Link to="/categories" className="custom-dropdown">
+                                Categories
+                                <img src={ChevronDown} alt="chevron down" className='chevron-down' style={{ width: '28px', height: '28px' }} />
+                            </Link>
+
+                            <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                {Object.entries(categories).map(([key, category]) => (
+                                    <div
+                                        key={key}
+                                        className="dropdown-item-wrapper"
+                                        onMouseEnter={() => handleCategoryHover(key)}
+                                    >
+                                        <Link
+                                            className="dropdown-item d-flex justify-content-between align-items-center" 
+                                            to={`/categories/${key}`}
+                                        >
+                                            {category.name}
+                                            <img
+                                                src={ChevronDown}
+                                                alt="chevron right"
+                                                className='chevron-right'
+                                                style={{
+                                                    width: '20px',
+                                                    height: '20px',
+                                                    transform: 'rotate(-90deg)'
+                                                }}
+                                            />
+                                        </Link>
+                                        {activeCategory === key && (
+                                            <div className="submenu-dropdown">
+                                                {category.subcategories.map((subcategory) => (
+                                                    <Link
+                                                        key={subcategory}
+                                                        className="dropdown-item"
+                                                        to={`/categories/${key}/${subcategory.toLowerCase()}`}
+                                                    >
+                                                        {subcategory}
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                         <Link to="/about">About</Link>
                         <Link to="/contact">Contact</Link>
                     </div>

@@ -4,7 +4,7 @@ import axios from 'axios';
 import API_BASE_URL from "../../config/api";
 
 
-export default function SimpleSlider() {
+export default function ProductRecommendation() {
 
     const [data, setData] = useState([]);
 
@@ -58,9 +58,10 @@ export default function SimpleSlider() {
     };
 
     return (
-        <div className="container my-3 featured-products">
-            <div className="d-flex justify-content-center">
-                <p className="head-text-featured text-center">Featured</p>
+        <div className="my-5 featured-products">
+            <div className="d-flex flex-column">
+                <h3 className="text-dark text-capitalize">You May Also Like</h3>
+                <p className="">Similar Products</p>
             </div>
             <Slider {...settings}>
                 {data.map((product) => (

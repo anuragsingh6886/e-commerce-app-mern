@@ -14,6 +14,7 @@ const ProtectedRoute = ({ children }) => {
 
 const AppRoutes = () => {
     const location = useLocation();
+    console.log(location);
     const isHomePage = location.pathname === '/';
 
     return (

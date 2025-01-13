@@ -1,0 +1,97 @@
+.product-container {
+    .product-details {
+        gap: 1rem;
+
+        @include media-breakpoint-up(lg) {
+            gap: 2rem;
+        }
+
+        .product-title {
+            .product-status {
+                .squ-status {
+                    color: $col-black-900;
+                    font-weight: $font-weight-semibold;
+                    font-size: 14px;
+                    border-radius: 100px;
+                    border: 1px solid $col-black-100;
+                    padding: 2px 10px;
+                }
+            }
+        }
+
+        .price-info {
+
+            .price {
+                align-items: center;
+
+                .discount-percentage  {
+                    color: $col-black-600;
+                    font-weight: $font-weight-semibold;
+                    font-size: 16px;
+                    line-height: 25px;
+                }
+            }
+
+            p {
+                margin-bottom: 8px;
+            }
+
+            .tax-info {
+                color: $col-black-400;
+                font-weight: $font-weight-normal;
+                font-size: 12px;
+            }
+        }
+
+        .quantity-val .input-group {
+            width: 152px;
+
+            input {
+                border: 1px solid $col-black-100;
+                padding: 0.75rem;
+                outline: none;
+
+                &::placeholder {
+                    color: $col-black-400;
+                }
+            }
+        }
+
+        .action-buttons  {
+            display: flex;
+            gap: 12px;
+
+            .add-to-cart {
+                background: $col-black-900;
+                color: $col-white-100;
+                border: none;
+                font-weight:  $font-weight-medium;
+                padding: 8px 12px;
+                border-radius: 4px;
+                width: 80%;
+
+                @include media-breakpoint-up(lg) {
+                    padding: 12px 24px;
+                    margin-right: 12px;
+                }
+            }
+
+            .wishlist-btn {
+                background: none;
+                border: 1px solid $col-black-100;
+                border-radius: 4px;
+                outline: none;
+                padding: 8px 12px;
+
+                @include media-breakpoint-up(lg) {
+                    padding: 11px 13px;
+                }
+
+                .heart-icon {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+        }
+    }
+}

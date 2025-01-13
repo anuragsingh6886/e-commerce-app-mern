@@ -1,0 +1,33 @@
+.featured-products {
+    .product-item {
+        border-radius: 8px;
+    }
+
+    .head-text-featured {
+        font-weight: $font-weight-semibold;
+        font-size: 16px;
+        color: $col-black-900;
+        text-transform: capitalize;
+        border-radius: 100px;
+        border: 1px solid $col-black-100;
+        padding: 2px 10px;
+    }
+
+    .product-desciption {
+        .head-text {
+            font-weight: $font-weight-semibold;
+            font-size: 16px;
+            color: $col-black-900;
+            text-transform: capitalize;
+        }
+
+        .squ-status {
+            color: $col-black-900;
+            font-weight: $font-weight-semibold;
+            font-size: 14px;
+            border-radius: 100px;
+            border: 1px solid $col-black-100;
+            padding: 2px 10px;
+        }
+    }
+}
