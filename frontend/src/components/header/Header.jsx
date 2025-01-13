@@ -6,7 +6,7 @@ import userIcon from '../../assetes/icons/userIcon.svg';
 import cartIcon from '../../assetes/icons/cartIcon.svg';
 import { useAuth } from '../../provider/authProvider';
 import { useUserProfile } from '../../provider/profileProvider';
-import chevronDown from '../../assetes/icons/chevronDown.svg';
+import { FiChevronDown } from "react-icons/fi";
 
 const Header = () => {
     const [isMobile, setIsMobile] = useState(false);
@@ -73,7 +73,7 @@ const Header = () => {
                         <div className="dropdown-btn" onMouseLeave={handleMouseLeave} >
                             <Link to="/categories" className="custom-dropdown">
                                 Categories
-                                <img src={chevronDown} alt="chevron down" className='chevron-down' style={{ width: '20px', height: '20px' }} />
+                                <FiChevronDown style={{ width: '20px', height: '20px' }} className='chevron-down' />
                             </Link>
 
                             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -88,9 +88,7 @@ const Header = () => {
                                             to={`/categories/${key}`}
                                         >
                                             {category.name}
-                                            <img
-                                                src={chevronDown}
-                                                alt="chevron right"
+                                            <FiChevronDown
                                                 className='chevron-right'
                                                 style={{
                                                     width: '20px',
