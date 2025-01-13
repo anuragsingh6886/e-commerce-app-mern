@@ -6,7 +6,7 @@ import userIcon from '../../assetes/icons/userIcon.svg';
 import cartIcon from '../../assetes/icons/cartIcon.svg';
 import { useAuth } from '../../provider/authProvider';
 import { useUserProfile } from '../../provider/profileProvider';
-import ChevronDown from '../../assetes/icons/chevronDown.svg';
+import chevronDown from '../../assetes/icons/chevronDown.svg';
 
 const Header = () => {
     const [isMobile, setIsMobile] = useState(false);
@@ -73,7 +73,7 @@ const Header = () => {
                         <div className="dropdown-btn" onMouseLeave={handleMouseLeave} >
                             <Link to="/categories" className="custom-dropdown">
                                 Categories
-                                <img src={ChevronDown} alt="chevron down" className='chevron-down' style={{ width: '28px', height: '28px' }} />
+                                <img src={chevronDown} alt="chevron down" className='chevron-down' style={{ width: '20px', height: '20px' }} />
                             </Link>
 
                             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -84,12 +84,12 @@ const Header = () => {
                                         onMouseEnter={() => handleCategoryHover(key)}
                                     >
                                         <Link
-                                            className="dropdown-item d-flex justify-content-between align-items-center" 
+                                            className="dropdown-item d-flex justify-content-between align-items-center"
                                             to={`/categories/${key}`}
                                         >
                                             {category.name}
                                             <img
-                                                src={ChevronDown}
+                                                src={chevronDown}
                                                 alt="chevron right"
                                                 className='chevron-right'
                                                 style={{

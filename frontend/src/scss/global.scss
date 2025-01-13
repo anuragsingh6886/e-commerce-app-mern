@@ -1,26 +1,26 @@
 @charset "UTF-8";
 
-@import "bootstrap/scss/bootstrap";
-@import "./_mixins";
-@import "./variables";
-@import "./main";
+@use "bootstrap/scss/bootstrap";
+@use "./_mixins";
+@use "./variables";
+@use "./main";
 
 // common style
-@import "./components/common/breadcrumbs";
+@use "./components/common/breadcrumbs";
 
 // components style
-@import "./_promo";
-@import "./components/header/header";
-@import "./components/login/login";
-@import "./components/footer/footer";
-@import "./components/footer/newsletter";
-@import "./components/contact/contact";
-@import "./components/category/category";
+@use "./_promo";
+@use "./components/header/header";
+@use "./components/login/login";
+@use "./components/footer/footer";
+@use "./components/footer/newsletter";
+@use "./components/contact/contact";
+@use "./components/category/category";
 
 // products style
-@import "./components/products/products";
-@import "./components/products/featuredProduct";
+@use "./components/products/products";
+@use "./components/products/featuredProduct";
 
 // pages style
-@import "./components/home/heroBanner";
-@import "./components/account/account";
+@use "./components/home/heroBanner";
+@use "./components/account/account";
